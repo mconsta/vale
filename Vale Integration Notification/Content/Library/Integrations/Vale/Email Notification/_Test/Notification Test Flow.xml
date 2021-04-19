@@ -1,0 +1,1526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow id="771b996b-b85a-4824-9d0e-80047d3811d5">
+  <descriptionCdata><![CDATA[]]></descriptionCdata>
+  <annotation></annotation>
+  <name>Notification Test Flow</name>
+  <categories/>
+  <inputs/>
+  <possibleResponses>
+    <opResponse id="8b7fe9ab-1386-4ef5-b1f9-f620515a62e1">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>true</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+    <opResponse id="1e395ac1-6e5b-4f36-8e40-67e5393b6a82">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>false</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="2ebe2d8f-c77a-45a9-a1e3-88a455879b28">
+    <annotation></annotation>
+    <name>FailureMessage</name>
+    <fieldName>FailureMessage</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="d108e955-9c7b-45cb-8c6e-ea3c0310df84">
+    <baseIcon>flow.png</baseIcon>
+    <basePath>System</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <callouts/>
+  <checkPointFlow>true</checkPointFlow>
+  <compatibleRuntimeContext>false</compatibleRuntimeContext>
+  <historyCheckPointFlow>true</historyCheckPointFlow>
+  <steps>
+    <step id="16c66fa0-d87c-4803-8bcf-a1bbcaca4c12">
+      <annotation></annotation>
+      <name>Notify Order Completion to Deploy Team</name>
+      <bounds>
+        <x>120.0</x>
+        <y>60.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="1d9e6cf5-134c-468a-b65b-103e5a93f71f">
+        <baseIcon>flow.png</baseIcon>
+        <basePath>System</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="f47fe04e-2378-4d14-a07e-bed5d4be33f2">
+          <annotation></annotation>
+          <toContextKey>mail_to</toContextKey>
+          <fromContextKey>Vale/Email Notification/Recipients/RCPTNotifyWintel-P2</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>to</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>nobody@dxc.com</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="02be5d78-702d-42c1-a678-7b748776ec55">
+          <annotation></annotation>
+          <toContextKey>mail_subject</toContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>subject</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>Windows VM order completion</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="8691a7a8-49b4-45d1-99fd-5e24b160c720">
+          <annotation></annotation>
+          <toContextKey>mail_htmlEmail</toContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>htmlEmail</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="51de161a-ff6b-4525-a55a-7fb9db57f043">
+          <annotation></annotation>
+          <toContextKey>mail_body</toContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>body</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;font color=&quot;black&quot;&gt;
+&lt;p&gt;&lt;i&gt;Ol&#225; equipe,&lt;/i&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;i&gt;O pedido &lt;b&gt;${SVC_SUBSCRIPTION_ID}&lt;/b&gt; foi processado com &#234;xito no Portal do aCP.&lt;/i&gt;&lt;/p&gt;
+
+&lt;font color=&quot;black&quot;&gt;
+&lt;p&gt;&lt;b&gt;Order details - Server details&lt;/b&gt;&lt;/br&gt;&lt;/p&gt;
+
+Server Name		-	&lt;b&gt;${vmHostname}&lt;/b&gt;&lt;/br&gt;
+Server ID		-	&lt;b&gt;${vmId}&lt;/b&gt;&lt;/br&gt;
+Server OS		-	&lt;b&gt;${osType}&lt;/b&gt;&lt;/br&gt;
+Server IP		-	&lt;b&gt;${ipAddress}&lt;/b&gt;&lt;/br&gt;
+Server Size		-	&lt;b&gt;${serverSize}&lt;/b&gt;&lt;/br&gt;
+DataCenter		-	&lt;b&gt;${datacenterName}&lt;/b&gt;&lt;/br&gt;
+Country		-	&lt;b&gt;${Country}&lt;/b&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;/font&gt;
+
+&lt;p&gt;&lt;i&gt;Esta mensagem foi gerada automaticamente. Por favor n&#227;o responda este e-mail.&lt;/i&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Obrigado,&lt;/b&gt;&lt;/br&gt;
+&lt;b&gt;DXC.technology&lt;/b&gt;&lt;/p&gt;
+&lt;/font&gt;
+_________________________________________________________________________________________________________________
+
+&lt;font color=&quot;black&quot;&gt;
+&lt;p&gt;&lt;i&gt;Hello Team,&lt;/i&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;i&gt;The order &lt;b&gt;${SVC_SUBSCRIPTION_ID}&lt;/b&gt; has successfully been processed through the aCP Portal.&lt;/i&gt;&lt;/p&gt;
+
+&lt;font color=&quot;black&quot;&gt;
+&lt;p&gt;&lt;b&gt;Order details - Server details&lt;/b&gt;&lt;/br&gt;&lt;/p&gt;
+
+Server Name		-	&lt;b&gt;${vmHostname}&lt;/b&gt;&lt;/br&gt;
+Server ID		-	&lt;b&gt;${vmId}&lt;/b&gt;&lt;/br&gt;
+Server OS		-	&lt;b&gt;${osType}&lt;/b&gt;&lt;/br&gt;
+Server IP		-	&lt;b&gt;${ipAddress}&lt;/b&gt;&lt;/br&gt;
+Server Size		-	&lt;b&gt;${serverSize}&lt;/b&gt;&lt;/br&gt;
+DataCenter		-	&lt;b&gt;${datacenterName}&lt;/b&gt;&lt;/br&gt;
+Country		-	&lt;b&gt;${Country}&lt;/b&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;/font&gt;
+
+&lt;p&gt;&lt;i&gt;This is an automatically generated message. Please do not reply directly to this email.&lt;/i&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Thank you,&lt;/b&gt;&lt;/br&gt;
+&lt;b&gt;DXC.technology&lt;/b&gt;&lt;/p&gt;
+&lt;/font&gt;
+&lt;/body&gt;
+&lt;/html&gt;</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="b5cb5565-ffe0-436e-9727-aab81659e0cb">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>5c6185fb-6542-4fd0-b495-2979aa1d5124</refId>
+          </destination>
+          <source>
+            <refId>16c66fa0-d87c-4803-8bcf-a1bbcaca4c12</refId>
+          </source>
+          <positions>
+            <point>
+              <x>170.0</x>
+              <y>94.0</y>
+            </point>
+            <point>
+              <x>170.0</x>
+              <y>304.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="6920aaa8-8418-4855-87eb-9f489004aabd">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>5c6185fb-6542-4fd0-b495-2979aa1d5124</refId>
+          </destination>
+          <source>
+            <refId>16c66fa0-d87c-4803-8bcf-a1bbcaca4c12</refId>
+          </source>
+          <positions>
+            <point>
+              <x>170.0</x>
+              <y>94.0</y>
+            </point>
+            <point>
+              <x>195.0</x>
+              <y>154.0</y>
+            </point>
+            <point>
+              <x>195.0</x>
+              <y>244.0</y>
+            </point>
+            <point>
+              <x>170.0</x>
+              <y>304.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>8d7a832f-eae8-4d31-94f8-8dcf41622f74</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+    <returnStep id="faec1f89-07e2-42dc-9a6f-89f29416e2f3">
+      <annotation></annotation>
+      <name>Resolved : success</name>
+      <bounds>
+        <x>930.0</x>
+        <y>60.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="22654132-1eeb-4044-acfb-779212522631">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>faec1f89-07e2-42dc-9a6f-89f29416e2f3</refId>
+          </destination>
+          <source>
+            <refId>faec1f89-07e2-42dc-9a6f-89f29416e2f3</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>RESOLVED</returnStepType>
+      <assignments/>
+    </returnStep>
+    <returnStep id="e291d46d-e7ce-48ab-89d8-7b9a5a13bd34">
+      <annotation></annotation>
+      <name>Error : failure</name>
+      <bounds>
+        <x>360.0</x>
+        <y>60.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="811c91d1-c7bc-4ff6-92ac-7600ed838767">
+        <baseIcon>return_failure.png</baseIcon>
+        <basePath>System</basePath>
+        <readOnly>true</readOnly>
+        <layers/>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="c094f28a-0212-473d-9a2c-02463b56028a">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>e291d46d-e7ce-48ab-89d8-7b9a5a13bd34</refId>
+          </destination>
+          <source>
+            <refId>e291d46d-e7ce-48ab-89d8-7b9a5a13bd34</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>ERROR</returnStepType>
+      <assignments/>
+    </returnStep>
+    <step id="5c6185fb-6542-4fd0-b495-2979aa1d5124">
+      <annotation></annotation>
+      <name>Notify Customer for VM order completion</name>
+      <bounds>
+        <x>120.0</x>
+        <y>270.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="6cffc38a-0ea1-4c2c-af89-d2f63de2549f">
+          <annotation></annotation>
+          <toContextKey>mail_to</toContextKey>
+          <fromContextKey>SVC_SUBSCRIPTION_EMAIL</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>to</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>nobody@dxc.com</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="c33f028e-ff09-45cd-aafa-e70c3663e9de">
+          <annotation></annotation>
+          <toContextKey>mail_subject</toContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>subject</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>Windows VM Order Completion</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="71ad58cf-10bf-4608-9889-07c6b15de136">
+          <annotation></annotation>
+          <toContextKey>mail_htmlEmail</toContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>htmlEmail</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="28b87562-4962-4678-87af-61fa0b8ffd21">
+          <annotation></annotation>
+          <toContextKey>mail_body</toContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>body</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;font color=&quot;black&quot;&gt;
+&lt;p&gt;&lt;i&gt;Prezado cliente,&lt;/i&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;i&gt;O pedido &lt;b&gt;${SVC_SUBSCRIPTION_ID}&lt;/b&gt; foi processado com &#234;xito no Portal do aCP.&lt;/i&gt;&lt;/p&gt;
+
+&lt;font color=&quot;black&quot;&gt;
+&lt;p&gt;&lt;b&gt;Order details - Server details&lt;/b&gt;&lt;/br&gt;&lt;/p&gt;
+
+Server Name		-	&lt;b&gt;${vmHostname}&lt;/b&gt;&lt;/br&gt;
+Server ID		-	&lt;b&gt;${vmId}&lt;/b&gt;&lt;/br&gt;
+Server OS		-	&lt;b&gt;${osType}&lt;/b&gt;&lt;/br&gt;
+Server IP		-	&lt;b&gt;${ipAddress}&lt;/b&gt;&lt;/br&gt;
+Server Size		-	&lt;b&gt;${serverSize}&lt;/b&gt;&lt;/br&gt;
+DataCenter		-	&lt;b&gt;${datacenterName}&lt;/b&gt;&lt;/br&gt;
+Country		-	&lt;b&gt;${Country}&lt;/b&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;/font&gt;
+
+&lt;p&gt;&lt;i&gt;Esta mensagem foi gerada automaticamente. Por favor n&#227;o responda este e-mail.&lt;/i&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Obrigado,&lt;/b&gt;&lt;/br&gt;
+&lt;b&gt;DXC.technology&lt;/b&gt;&lt;/p&gt;
+&lt;/font&gt;
+_________________________________________________________________________________________________________________
+
+&lt;font color=&quot;black&quot;&gt;
+&lt;p&gt;&lt;i&gt;Dear customer,&lt;/i&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;i&gt;The order &lt;b&gt;${SVC_SUBSCRIPTION_ID}&lt;/b&gt; has successfully been processed through the aCP Portal.&lt;/i&gt;&lt;/p&gt;
+
+&lt;font color=&quot;black&quot;&gt;
+&lt;p&gt;&lt;b&gt;Order details - Server details&lt;/b&gt;&lt;/br&gt;&lt;/p&gt;
+
+Server Name		-	&lt;b&gt;${vmHostname}&lt;/b&gt;&lt;/br&gt;
+Server ID		-	&lt;b&gt;${vmId}&lt;/b&gt;&lt;/br&gt;
+Server OS		-	&lt;b&gt;${osType}&lt;/b&gt;&lt;/br&gt;
+Server IP		-	&lt;b&gt;${ipAddress}&lt;/b&gt;&lt;/br&gt;
+Server Size		-	&lt;b&gt;${serverSize}&lt;/b&gt;&lt;/br&gt;
+DataCenter		-	&lt;b&gt;${datacenterName}&lt;/b&gt;&lt;/br&gt;
+Country		-	&lt;b&gt;${Country}&lt;/b&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;/font&gt;
+
+&lt;p&gt;&lt;i&gt;This is an automatically generated message. Please do not reply directly to this email.&lt;/i&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Thank you,&lt;/b&gt;&lt;/br&gt;
+&lt;b&gt;DXC.technology&lt;/b&gt;&lt;/p&gt;
+&lt;/font&gt;
+&lt;/body&gt;
+&lt;/html&gt;</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="19da9e86-079f-4514-a803-781452cc085a">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>24396b8b-f0b4-4b81-b384-06fe197ca058</refId>
+          </destination>
+          <source>
+            <refId>5c6185fb-6542-4fd0-b495-2979aa1d5124</refId>
+          </source>
+          <positions>
+            <point>
+              <x>170.0</x>
+              <y>304.0</y>
+            </point>
+            <point>
+              <x>170.0</x>
+              <y>514.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="5e5f6054-2d9a-4e45-98fc-5051b2fbe822">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>24396b8b-f0b4-4b81-b384-06fe197ca058</refId>
+          </destination>
+          <source>
+            <refId>5c6185fb-6542-4fd0-b495-2979aa1d5124</refId>
+          </source>
+          <positions>
+            <point>
+              <x>170.0</x>
+              <y>304.0</y>
+            </point>
+            <point>
+              <x>195.0</x>
+              <y>364.0</y>
+            </point>
+            <point>
+              <x>195.0</x>
+              <y>454.0</y>
+            </point>
+            <point>
+              <x>170.0</x>
+              <y>514.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>8d7a832f-eae8-4d31-94f8-8dcf41622f74</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="24396b8b-f0b4-4b81-b384-06fe197ca058">
+      <annotation></annotation>
+      <name>Password Notification to Security team</name>
+      <bounds>
+        <x>120.0</x>
+        <y>480.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="0d50b526-7d61-4703-a6e8-bc3691fd5c51">
+          <annotation></annotation>
+          <toContextKey>mail_to</toContextKey>
+          <fromContextKey>Vale/Email Notification/Recipients/RCPTNotifySecurityTeam</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>to</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>nobody@dxc.com</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="1f33b6c2-5cf9-412d-b52f-f98176daff78">
+          <annotation></annotation>
+          <toContextKey>mail_subject</toContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>subject</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>Password for VM</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="cd4ed194-05af-4e12-bf69-281043acb720">
+          <annotation></annotation>
+          <toContextKey>mail_htmlEmail</toContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>htmlEmail</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="c2c78738-04ff-4544-91b2-50ed76a1e534">
+          <annotation></annotation>
+          <toContextKey>mail_body</toContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>body</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;font color=&quot;black&quot;&gt;
+&lt;p&gt;&lt;i&gt;Ol&#225; equipe,&lt;/i&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;i&gt;O pedido &lt;b&gt;${SVC_SUBSCRIPTION_ID}&lt;/b&gt; foi processado com &#234;xito no Portal do aCP.&lt;/i&gt;&lt;/p&gt;
+
+&lt;font color=&quot;black&quot;&gt;
+&lt;p&gt;&lt;b&gt;Order details - Server details&lt;/b&gt;&lt;/br&gt;&lt;/p&gt;
+
+Server Name		-	&lt;b&gt;${vmHostname}&lt;/b&gt;&lt;/br&gt;
+Server IP		-	&lt;b&gt;${ipAddress}&lt;/b&gt;&lt;/br&gt;
+Password		-	&lt;b&gt;${newpassword}&lt;/b&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;/font&gt;
+
+&lt;p&gt;&lt;i&gt;Esta mensagem foi gerada automaticamente. Por favor n&#227;o responda este e-mail.&lt;/i&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Obrigado,&lt;/b&gt;&lt;/br&gt;
+&lt;b&gt;DXC.technology&lt;/b&gt;&lt;/p&gt;
+&lt;/font&gt;
+_________________________________________________________________________________________________________________
+
+&lt;font color=&quot;black&quot;&gt;
+&lt;p&gt;&lt;i&gt;Hello Team,&lt;/i&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;i&gt;The order &lt;b&gt;${SVC_SUBSCRIPTION_ID}&lt;/b&gt; has successfully been processed through the aCP Portal.&lt;/i&gt;&lt;/p&gt;
+
+&lt;font color=&quot;black&quot;&gt;
+&lt;p&gt;&lt;b&gt;Order details - Server details&lt;/b&gt;&lt;/br&gt;&lt;/p&gt;
+
+Server Name		-	&lt;b&gt;${vmHostname}&lt;/b&gt;&lt;/br&gt;
+Server IP		-	&lt;b&gt;${ipAddress}&lt;/b&gt;&lt;/br&gt;
+Password		-	&lt;b&gt;${newpassword}&lt;/b&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;/font&gt;
+
+&lt;p&gt;&lt;i&gt;This is an automatically generated message. Please do not reply directly to this email.&lt;/i&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Thank you,&lt;/b&gt;&lt;/br&gt;
+&lt;b&gt;DXC.technology&lt;/b&gt;&lt;/p&gt;
+&lt;/font&gt;
+&lt;/body&gt;
+&lt;/html&gt;</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="76760eb3-78b0-4895-8da6-2d5a00a96e36">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>47593978-8073-4413-8c7e-b2dd9b931927</refId>
+          </destination>
+          <source>
+            <refId>24396b8b-f0b4-4b81-b384-06fe197ca058</refId>
+          </source>
+          <positions>
+            <point>
+              <x>170.0</x>
+              <y>514.0</y>
+            </point>
+            <point>
+              <x>410.0</x>
+              <y>514.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="6bd4448a-fbd4-445d-ba43-33d81079a9e4">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>47593978-8073-4413-8c7e-b2dd9b931927</refId>
+          </destination>
+          <source>
+            <refId>24396b8b-f0b4-4b81-b384-06fe197ca058</refId>
+          </source>
+          <positions>
+            <point>
+              <x>170.0</x>
+              <y>514.0</y>
+            </point>
+            <point>
+              <x>230.0</x>
+              <y>539.0</y>
+            </point>
+            <point>
+              <x>350.0</x>
+              <y>539.0</y>
+            </point>
+            <point>
+              <x>410.0</x>
+              <y>514.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>8d7a832f-eae8-4d31-94f8-8dcf41622f74</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="47593978-8073-4413-8c7e-b2dd9b931927">
+      <annotation></annotation>
+      <name>Tools Integration Failure Notify</name>
+      <bounds>
+        <x>360.0</x>
+        <y>480.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="0e733bcd-67e4-45b3-adef-c15e47fb9169">
+          <annotation></annotation>
+          <toContextKey>mail_to</toContextKey>
+          <fromContextKey>Vale/Email Notification/Recipients/RCPTNotifyACPTeam</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>to</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>nobody@dxc.com</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="66d9b7a8-82f9-4cc2-b7c1-213bdb33b115">
+          <annotation></annotation>
+          <toContextKey>mail_subject</toContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>subject</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>Tools Integration Failure </value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="1ea8c968-0f01-45a2-9bf7-70724ba89e7b">
+          <annotation></annotation>
+          <toContextKey>mail_htmlEmail</toContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>htmlEmail</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="94cf6228-3ec6-428f-9c60-22f434ff8b18">
+          <annotation></annotation>
+          <toContextKey>mail_body</toContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>body</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;font color=&quot;black&quot;&gt;
+&lt;p&gt;Prezado cliente,&lt;/p&gt;
+
+&lt;p&gt;O pedido ${SVC_SUBSCRIPTION_ID} foi processado com &#234;xito no Portal do aCP.&lt;/p&gt;
+
+&lt;font color=&quot;black&quot;&gt;
+&lt;p&gt;Order details - Server details&lt;/br&gt;
+vmID		-	&lt;b&gt;${vmId}&lt;/b&gt;&lt;/br&gt;
+osType		-	&lt;b&gt;${osType}&lt;/b&gt;&lt;/br&gt;
+IP		-	&lt;b&gt;${ipAddress}&lt;/b&gt;&lt;/br&gt;
+Hostname		-	&lt;b&gt;${vmHostname}&lt;/b&gt;&lt;/br&gt;&lt;/p&gt;
+
+${errMessage}
+
+&lt;/font&gt;
+
+
+
+&lt;p&gt;Esta mensagem foi gerada automaticamente. Por favor n&#227;o responda este e-mail.&lt;/p&gt;
+
+&lt;p&gt;Obrigado.&lt;/br&gt;
+Hewlett Packard Enterprise&lt;/p&gt;
+&lt;/font&gt;
+_________________________________________________________________________________________________________________
+
+&lt;font color=&quot;black&quot;&gt;
+&lt;p&gt;Dear customer,&lt;/p&gt;
+
+&lt;p&gt;The order ${SVC_SUBSCRIPTION_ID} has successfully been processed thru the aCP Portal.&lt;/p&gt;
+
+&lt;font color=&quot;black&quot;&gt;
+&lt;p&gt;Order details - Server details&lt;/br&gt;
+vmID		-	&lt;b&gt;${vmId}&lt;/b&gt;&lt;/br&gt;
+osType		-	&lt;b&gt;${osType}&lt;/b&gt;&lt;/br&gt;
+IP		-	&lt;b&gt;${ipAddress}&lt;/b&gt;&lt;/br&gt;
+Hostname		-	&lt;b&gt;${vmHostname}&lt;/b&gt;&lt;/br&gt;&lt;/p&gt;
+
+${errMessage}
+
+&lt;/font&gt;
+
+
+
+&lt;p&gt;This is an automatically generated message. Please do not reply directly to this email.&lt;/p&gt;
+
+&lt;p&gt;Thank you.&lt;/br&gt;
+Hewlett Packard Enterprise&lt;/p&gt;
+&lt;/font&gt;
+&lt;/body&gt;
+&lt;/html&gt;</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="50cb9fa2-563c-4075-9bc0-79a29a152a25">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>81d0d74a-9d03-4464-8592-774fb9f5a680</refId>
+          </destination>
+          <source>
+            <refId>47593978-8073-4413-8c7e-b2dd9b931927</refId>
+          </source>
+          <positions>
+            <point>
+              <x>410.0</x>
+              <y>514.0</y>
+            </point>
+            <point>
+              <x>650.0</x>
+              <y>514.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="df13a39e-ce0b-4291-8118-2b49cebc6965">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>81d0d74a-9d03-4464-8592-774fb9f5a680</refId>
+          </destination>
+          <source>
+            <refId>47593978-8073-4413-8c7e-b2dd9b931927</refId>
+          </source>
+          <positions>
+            <point>
+              <x>410.0</x>
+              <y>514.0</y>
+            </point>
+            <point>
+              <x>470.0</x>
+              <y>539.0</y>
+            </point>
+            <point>
+              <x>590.0</x>
+              <y>539.0</y>
+            </point>
+            <point>
+              <x>650.0</x>
+              <y>514.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>8d7a832f-eae8-4d31-94f8-8dcf41622f74</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="81d0d74a-9d03-4464-8592-774fb9f5a680">
+      <annotation></annotation>
+      <name>Notify Automation Team</name>
+      <bounds>
+        <x>600.0</x>
+        <y>480.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="9c433a4e-8917-463d-bef0-a04752330a30">
+          <annotation></annotation>
+          <toContextKey>mail_to</toContextKey>
+          <fromContextKey>Vale/Email Notification/Recipients/RCPTNotifyAutomationTeam</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>to</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>nobody@dxc.com</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="9b5f82da-0c5a-42cb-8738-98f5190cdea5">
+          <annotation></annotation>
+          <toContextKey>mail_subject</toContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>subject</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>Windows VM Order Completed with Billing update failure - Please verify!</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="84e709ab-0800-4704-96cb-3f921677d947">
+          <annotation></annotation>
+          <toContextKey>mail_htmlEmail</toContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>htmlEmail</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="e5fcdbdf-0651-4808-9ee7-e520c9fb800d">
+          <annotation></annotation>
+          <toContextKey>mail_body</toContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>body</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;font color=&quot;black&quot;&gt;
+&lt;p&gt;aCP Virtualization Team,&lt;/p&gt;
+
+&lt;p&gt;O pedido ${SVC_SUBSCRIPTION_ID} foi processado com &#234;xito no Portal do aCP.&lt;/p&gt;
+
+&lt;font color=&quot;black&quot;&gt;
+&lt;p&gt;Order details - Server details&lt;/br&gt;
+vmID		-	&lt;b&gt;${vmId}&lt;/b&gt;&lt;/br&gt;
+DataCenter		-	&lt;b&gt;${datacenterName}&lt;/b&gt;&lt;br&gt;
+Server Size		-	&lt;b&gt;${serverSize}&lt;/b&gt;&lt;/br&gt;
+Country		-	&lt;b&gt;${Country}&lt;/b&gt;&lt;/br&gt;
+osType		-	&lt;b&gt;${osType}&lt;/b&gt;&lt;/br&gt;
+IP		-	&lt;b&gt;${ipAddress}&lt;/b&gt;&lt;/br&gt;
+Hostname		-	&lt;b&gt;${vmHostname}&lt;/b&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;/font&gt;
+
+&lt;p&gt;Esta mensagem foi gerada automaticamente. Por favor n&#227;o responda este e-mail.&lt;/p&gt;
+
+&lt;p&gt;Obrigado&lt;/br&gt;
+Hewlett Packard Enterprise&lt;/p&gt;
+&lt;/font&gt;
+_________________________________________________________________________________________________________________
+
+&lt;font color=&quot;black&quot;&gt;
+&lt;p&gt;aCP Virtualization Team,&lt;/p&gt;
+
+&lt;p&gt;The order ${SVC_SUBSCRIPTION_ID} has successfully been processed thru the aCP Portal.&lt;/p&gt;
+
+&lt;font color=&quot;black&quot;&gt;
+&lt;p&gt;Order details - Server details&lt;/br&gt;
+vmID		-	&lt;b&gt;${vmId}&lt;/b&gt;&lt;/br&gt;
+DataCenter		-	&lt;b&gt;${datacenterName}&lt;/b&gt;&lt;br&gt;
+Server Size		-	&lt;b&gt;${serverSize}&lt;/b&gt;&lt;/br&gt;
+Country		-	&lt;b&gt;${Country}&lt;/b&gt;&lt;/br&gt;
+osType		-	&lt;b&gt;${osType}&lt;/b&gt;&lt;/br&gt;
+IP		-	&lt;b&gt;${ipAddress}&lt;/b&gt;&lt;/br&gt;
+Hostname		-	&lt;b&gt;${vmHostname}&lt;/b&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;/font&gt;
+
+&lt;p&gt;This is an automatically generated message. Please do not reply directly to this email.&lt;/p&gt;
+
+&lt;p&gt;Thank you.&lt;/br&gt;
+Hewlett Packard Enterprise&lt;/p&gt;
+&lt;/font&gt;
+&lt;/body&gt;
+&lt;/html&gt;</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="efaffa39-9891-4f7a-870e-49787682a687">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>eddd8add-1d7b-4025-996e-b27bf20f91ba</refId>
+          </destination>
+          <source>
+            <refId>81d0d74a-9d03-4464-8592-774fb9f5a680</refId>
+          </source>
+          <positions>
+            <point>
+              <x>650.0</x>
+              <y>514.0</y>
+            </point>
+            <point>
+              <x>650.0</x>
+              <y>304.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="0bef27b3-c40b-4bc7-aae7-595a5beea0d1">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>eddd8add-1d7b-4025-996e-b27bf20f91ba</refId>
+          </destination>
+          <source>
+            <refId>81d0d74a-9d03-4464-8592-774fb9f5a680</refId>
+          </source>
+          <positions>
+            <point>
+              <x>650.0</x>
+              <y>514.0</y>
+            </point>
+            <point>
+              <x>675.0</x>
+              <y>454.0</y>
+            </point>
+            <point>
+              <x>675.0</x>
+              <y>364.0</y>
+            </point>
+            <point>
+              <x>650.0</x>
+              <y>304.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>8d7a832f-eae8-4d31-94f8-8dcf41622f74</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="89d3d0e8-b439-4eb0-b028-6a75d1a71065">
+      <annotation></annotation>
+      <name>Notify Post Deploy Error Message</name>
+      <bounds>
+        <x>600.0</x>
+        <y>60.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="b89601c7-d34c-4765-92ba-c51c53da1b1b">
+          <annotation></annotation>
+          <toContextKey>mail_to</toContextKey>
+          <fromContextKey>Vale/Email Notification/Recipients/RCPTNotifyACPTeam</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>to</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>nobody@dxc.com</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="95f3ff73-a154-4c6c-b33c-5b5bc8c0cd3e">
+          <annotation></annotation>
+          <toContextKey>mail_subject</toContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>subject</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>Post VM Deployment failure</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="e5893637-257d-4365-9b14-e1e7af80b2ff">
+          <annotation></annotation>
+          <toContextKey>mail_htmlEmail</toContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>htmlEmail</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="fb24b5ba-597d-42fa-9325-53773bf43cf2">
+          <annotation></annotation>
+          <toContextKey>mail_body</toContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>body</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;font color=&quot;black&quot;&gt;
+&lt;p&gt;Caro cliente,&lt;/p&gt;
+
+&lt;p&gt;Seu pedido ${SVC_SUBSCRIPTION_ID} foi processado.&lt;/p&gt;
+
+&lt;p&gt;Post VM Deployment failure&lt;/br&gt;
+
+&lt;p&gt;Esta mensagem foi gerada automaticamente. Por favor n&#227;o responda este e-mail.&lt;/p&gt;
+
+&lt;p&gt;Obrigado.&lt;/br&gt;
+Hewlett Packard Enterprise&lt;/p&gt;
+&lt;/font&gt;
+_________________________________________________________________________________________________________________
+
+&lt;font color=&quot;black&quot;&gt;
+&lt;p&gt;Dear customer,&lt;/p&gt;
+
+&lt;p&gt;Your order ${SVC_SUBSCRIPTION_ID} has been processed.&lt;/p&gt;
+
+&lt;p&gt;Post VM Deployment failure&lt;/br&gt;
+
+&lt;p&gt;This is an automatically generated message. Please do not reply directly to this email.&lt;/p&gt;
+
+&lt;p&gt;Thank you.&lt;/br&gt;
+Hewlett Packard Enterprise&lt;/p&gt;
+&lt;/font&gt;
+&lt;/body&gt;
+&lt;/html&gt;</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="dbf0cd7b-78c0-439b-89cf-15f2bbefe155">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>e291d46d-e7ce-48ab-89d8-7b9a5a13bd34</refId>
+          </destination>
+          <source>
+            <refId>89d3d0e8-b439-4eb0-b028-6a75d1a71065</refId>
+          </source>
+          <positions>
+            <point>
+              <x>650.0</x>
+              <y>304.0</y>
+            </point>
+            <point>
+              <x>410.0</x>
+              <y>304.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="d9f77c8d-2d31-4e61-909e-b8f75638f0b4">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>faec1f89-07e2-42dc-9a6f-89f29416e2f3</refId>
+          </destination>
+          <source>
+            <refId>89d3d0e8-b439-4eb0-b028-6a75d1a71065</refId>
+          </source>
+          <positions>
+            <point>
+              <x>650.0</x>
+              <y>304.0</y>
+            </point>
+            <point>
+              <x>650.0</x>
+              <y>94.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>8d7a832f-eae8-4d31-94f8-8dcf41622f74</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="eddd8add-1d7b-4025-996e-b27bf20f91ba">
+      <annotation></annotation>
+      <name>Notify Deploy Error Message</name>
+      <bounds>
+        <x>600.0</x>
+        <y>270.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="83fb7e20-5b32-4d2e-b53a-d90cba335cc3">
+          <annotation></annotation>
+          <toContextKey>mail_to</toContextKey>
+          <fromContextKey>Vale/Email Notification/Recipients/RCPTNotifyACPTeam</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>to</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>nobody@dxc.com</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="8fb4932b-0b26-4b4f-99b9-ad4ca842a882">
+          <annotation></annotation>
+          <toContextKey>mail_subject</toContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>subject</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>VM Deployment failure</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="9f934d99-6e0c-44b1-a75f-97e6fe386427">
+          <annotation></annotation>
+          <toContextKey>mail_htmlEmail</toContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>htmlEmail</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="f65a2450-6e7e-4848-9030-8085396ea327">
+          <annotation></annotation>
+          <toContextKey>mail_body</toContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>body</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;font color=&quot;black&quot;&gt;
+&lt;p&gt;Caro cliente,&lt;/p&gt;
+
+&lt;p&gt;Seu pedido ${SVC_SUBSCRIPTION_ID} foi processado.&lt;/p&gt;
+
+&lt;p&gt;VM Deployment failure&lt;/br&gt;
+
+&lt;p&gt;Esta mensagem foi gerada automaticamente. Por favor n&#227;o responda este e-mail.&lt;/p&gt;
+
+&lt;p&gt;Obrigado.&lt;/br&gt;
+Hewlett Packard Enterprise&lt;/p&gt;
+&lt;/font&gt;
+_________________________________________________________________________________________________________________
+
+&lt;font color=&quot;black&quot;&gt;
+&lt;p&gt;Dear customer,&lt;/p&gt;
+
+&lt;p&gt;Your order ${SVC_SUBSCRIPTION_ID} has been processed.&lt;/p&gt;
+
+&lt;p&gt;VM Deployment failure&lt;/br&gt;
+
+&lt;p&gt;This is an automatically generated message. Please do not reply directly to this email.&lt;/p&gt;
+
+&lt;p&gt;Thank you.&lt;/br&gt;
+Hewlett Packard Enterprise&lt;/p&gt;
+&lt;/font&gt;
+&lt;/body&gt;
+&lt;/html&gt;</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="fb5b4dfa-0dd5-4f11-ad75-33e035d3a538">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>89d3d0e8-b439-4eb0-b028-6a75d1a71065</refId>
+          </destination>
+          <source>
+            <refId>eddd8add-1d7b-4025-996e-b27bf20f91ba</refId>
+          </source>
+          <positions>
+            <point>
+              <x>650.0</x>
+              <y>304.0</y>
+            </point>
+            <point>
+              <x>650.0</x>
+              <y>94.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="691a1dbd-eeaf-42e7-8d04-952857cd8349">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>89d3d0e8-b439-4eb0-b028-6a75d1a71065</refId>
+          </destination>
+          <source>
+            <refId>eddd8add-1d7b-4025-996e-b27bf20f91ba</refId>
+          </source>
+          <positions>
+            <point>
+              <x>650.0</x>
+              <y>304.0</y>
+            </point>
+            <point>
+              <x>675.0</x>
+              <y>244.0</y>
+            </point>
+            <point>
+              <x>675.0</x>
+              <y>154.0</y>
+            </point>
+            <point>
+              <x>650.0</x>
+              <y>94.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>8d7a832f-eae8-4d31-94f8-8dcf41622f74</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+  </steps>
+  <startSteps>16c66fa0-d87c-4803-8bcf-a1bbcaca4c12</startSteps>
+</flow>
