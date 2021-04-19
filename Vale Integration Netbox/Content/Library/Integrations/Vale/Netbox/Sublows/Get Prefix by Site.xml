@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<flow id="2a11c7bc-c046-4a3c-b144-faa2a31e3ce9">
-  <descriptionCdata><![CDATA[2a11c7bc-c046-4a3c-b144-faa2a31e3ce9.08e1e7e5-7e97-4f0e-8f22-4c9e3c4a6410.description=This operation takes a reference to JSON (in the form of a string) and runs a specified JSON Path query on it. It returns the results as a JSON Object. \n\nInputs\:\n    json - The JSON in the form of a string.\n    jsonPathQuery - The JSON Path query to run. See details and examples in the Notes section below.\n\nResults\:\n    returnResult - This is the primary output. It contains the resulted JSON from the given path.\n\nResponses\:\n    success - The operation completed as stated in the description.\n    failure - The operation completed unsuccessfully.\n\nNotes\:\n1.Query syntax\:\nJSONPath \t\tDescription\n------------                           -------------     \n$ \t\tThe root object/element\n@ \t\tThe current object/element\n. or [] \t\tChild operator\nn/a \t\tParent operator\n.. \t\tRecursive descent. JSONPath borrows this syntax from E4X.\n* \t\tWildcard. All objects/elements regardless of their names.\nn/a \t\tAttribute access. JSON structures do not have attributes.\n[] \t\tSubscript operator. XPath uses it to iterate over element collections and for predicates. In JSON it is the native array operator.\n[,] \t\tUnion operator in XPath results in a combination of node sets. JSONPath allows alternate names or array indices as a set.\n[start\:end\:step] \tArray slice operator borrowed from ES4.\n?() \t\tApplies a filter (script) expression.\n() \t\tSript expression, using the underlying script engine.\n\n2.Examples\:\nThe examples below use the following JSON string value\:\n{\n    "store"\: {\n        "book"\: [\n            {\n                "category"\: "reference",\n                "author"\: "Nigel Rees",\n                "title"\: "Sayings of the Century",\n                "price"\: 8.95\n            },\n            {\n                "category"\: "fiction",\n                "author"\: "Evelyn Waugh",\n                "title"\: "Sword of Honour",\n                "price"\: 12.99\n            },\n            {\n                "category"\: "fiction",\n                "author"\: "Herman Melville",\n                "title"\: "Moby Dick",\n                "isbn"\: "0-553-21311-3",\n                "price"\: 8.99\n            },\n            {\n                "category"\: "fiction",\n                "author"\: "J. R. R. Tolkien",\n                "title"\: "The Lord of the Rings",\n                "isbn"\: "0-395-19395-8",\n                "price"\: 22.99\n            }\n        ],\n        "bicycle"\: {\n            "color"\: "red",\n            "price"\: null\n        }\n    },\n    "expensive"\: "10"\n}\n\nJSONPath \t\t\tResult\n------------                                                ---------\n$.store.book[*].author \t\tThe authors of all books in the store\n$...author \t\t\tAll authors\: ["Nigel Rees","Evelyn Waugh","Herman Melville","J. R. R. Tolkien"]\n$.store.* \t\t\tAll items in store, which are some books and a red bicycle.\n$.store..price \t\tThe price of everything in the store\n$..book[2] \t\t\tThe third book\n$..book[(@.length-1)] or $..book[-1\:] \tThe last book in order\n$..book[0,1] or $..book[\:2] \tThe first two books\n$..book[?(@.isbn)] \t\tFilter all books with isbn number\n$..book[?(@.price<10)] \t\tFilter all books wholse price is less than 10\n$..* \t\t\tAll Elements in XML document. All members of JSON structure. \n$.store.book[0]\t\tReturns the details of the first book\: reference,Nigel Rees,Sayings of the Century,8.95\n$.store.bicycle\t\t\tReturns the details of the bicycle including null in JSON format\: {"color"\:"red","price"\:null}
-2a11c7bc-c046-4a3c-b144-faa2a31e3ce9.0c55fcfb-c128-457f-9de4-aad4d1f0c7f7.description=<pre>Checks if a number or word is equal to another number or word. Word comparison is case-sensitive in alphabetical order.\n\nInputs\:\nvalue1 - The first value.\nvalue2 - The second value.\n\nReturns\:\nvalue1 \=\= value2\n\nResponses\:\nsuccess - The boolean operation was evaluated to true.\nfailure - Something went wrong or the boolean operation returned false.\n</pre>
-2a11c7bc-c046-4a3c-b144-faa2a31e3ce9.3fa2ac3c-e51e-4a95-b511-dee0b7c2fb31.description=This operation takes a reference to JSON (in the form of a string) and runs a specified JSON Path query on it. It returns the results as a JSON Object. \n\nInputs\:\n    json - The JSON in the form of a string.\n    jsonPathQuery - The JSON Path query to run. See details and examples in the Notes section below.\n\nResults\:\n    returnResult - This is the primary output. It contains the resulted JSON from the given path.\n\nResponses\:\n    success - The operation completed as stated in the description.\n    failure - The operation completed unsuccessfully.\n\nNotes\:\n1.Query syntax\:\nJSONPath \t\tDescription\n------------                           -------------     \n$ \t\tThe root object/element\n@ \t\tThe current object/element\n. or [] \t\tChild operator\nn/a \t\tParent operator\n.. \t\tRecursive descent. JSONPath borrows this syntax from E4X.\n* \t\tWildcard. All objects/elements regardless of their names.\nn/a \t\tAttribute access. JSON structures do not have attributes.\n[] \t\tSubscript operator. XPath uses it to iterate over element collections and for predicates. In JSON it is the native array operator.\n[,] \t\tUnion operator in XPath results in a combination of node sets. JSONPath allows alternate names or array indices as a set.\n[start\:end\:step] \tArray slice operator borrowed from ES4.\n?() \t\tApplies a filter (script) expression.\n() \t\tSript expression, using the underlying script engine.\n\n2.Examples\:\nThe examples below use the following JSON string value\:\n{\n    "store"\: {\n        "book"\: [\n            {\n                "category"\: "reference",\n                "author"\: "Nigel Rees",\n                "title"\: "Sayings of the Century",\n                "price"\: 8.95\n            },\n            {\n                "category"\: "fiction",\n                "author"\: "Evelyn Waugh",\n                "title"\: "Sword of Honour",\n                "price"\: 12.99\n            },\n            {\n                "category"\: "fiction",\n                "author"\: "Herman Melville",\n                "title"\: "Moby Dick",\n                "isbn"\: "0-553-21311-3",\n                "price"\: 8.99\n            },\n            {\n                "category"\: "fiction",\n                "author"\: "J. R. R. Tolkien",\n                "title"\: "The Lord of the Rings",\n                "isbn"\: "0-395-19395-8",\n                "price"\: 22.99\n            }\n        ],\n        "bicycle"\: {\n            "color"\: "red",\n            "price"\: null\n        }\n    },\n    "expensive"\: "10"\n}\n\nJSONPath \t\t\tResult\n------------                                                ---------\n$.store.book[*].author \t\tThe authors of all books in the store\n$...author \t\t\tAll authors\: ["Nigel Rees","Evelyn Waugh","Herman Melville","J. R. R. Tolkien"]\n$.store.* \t\t\tAll items in store, which are some books and a red bicycle.\n$.store..price \t\tThe price of everything in the store\n$..book[2] \t\t\tThe third book\n$..book[(@.length-1)] or $..book[-1\:] \tThe last book in order\n$..book[0,1] or $..book[\:2] \tThe first two books\n$..book[?(@.isbn)] \t\tFilter all books with isbn number\n$..book[?(@.price<10)] \t\tFilter all books wholse price is less than 10\n$..* \t\t\tAll Elements in XML document. All members of JSON structure. \n$.store.book[0]\t\tReturns the details of the first book\: reference,Nigel Rees,Sayings of the Century,8.95\n$.store.bicycle\t\t\tReturns the details of the bicycle including null in JSON format\: {"color"\:"red","price"\:null}
-2a11c7bc-c046-4a3c-b144-faa2a31e3ce9.46a5a170-a746-4116-a065-820e82168fe5.description=This operation takes a reference to JSON (in the form of a string) and runs a specified JSON Path query on it. It returns the results as a JSON Object. \n\nInputs\:\n    json - The JSON in the form of a string.\n    jsonPathQuery - The JSON Path query to run. See details and examples in the Notes section below.\n\nResults\:\n    returnResult - This is the primary output. It contains the resulted JSON from the given path.\n\nResponses\:\n    success - The operation completed as stated in the description.\n    failure - The operation completed unsuccessfully.\n\nNotes\:\n1.Query syntax\:\nJSONPath \t\tDescription\n------------                           -------------     \n$ \t\tThe root object/element\n@ \t\tThe current object/element\n. or [] \t\tChild operator\nn/a \t\tParent operator\n.. \t\tRecursive descent. JSONPath borrows this syntax from E4X.\n* \t\tWildcard. All objects/elements regardless of their names.\nn/a \t\tAttribute access. JSON structures do not have attributes.\n[] \t\tSubscript operator. XPath uses it to iterate over element collections and for predicates. In JSON it is the native array operator.\n[,] \t\tUnion operator in XPath results in a combination of node sets. JSONPath allows alternate names or array indices as a set.\n[start\:end\:step] \tArray slice operator borrowed from ES4.\n?() \t\tApplies a filter (script) expression.\n() \t\tSript expression, using the underlying script engine.\n\n2.Examples\:\nThe examples below use the following JSON string value\:\n{\n    "store"\: {\n        "book"\: [\n            {\n                "category"\: "reference",\n                "author"\: "Nigel Rees",\n                "title"\: "Sayings of the Century",\n                "price"\: 8.95\n            },\n            {\n                "category"\: "fiction",\n                "author"\: "Evelyn Waugh",\n                "title"\: "Sword of Honour",\n                "price"\: 12.99\n            },\n            {\n                "category"\: "fiction",\n                "author"\: "Herman Melville",\n                "title"\: "Moby Dick",\n                "isbn"\: "0-553-21311-3",\n                "price"\: 8.99\n            },\n            {\n                "category"\: "fiction",\n                "author"\: "J. R. R. Tolkien",\n                "title"\: "The Lord of the Rings",\n                "isbn"\: "0-395-19395-8",\n                "price"\: 22.99\n            }\n        ],\n        "bicycle"\: {\n            "color"\: "red",\n            "price"\: null\n        }\n    },\n    "expensive"\: "10"\n}\n\nJSONPath \t\t\tResult\n------------                                                ---------\n$.store.book[*].author \t\tThe authors of all books in the store\n$...author \t\t\tAll authors\: ["Nigel Rees","Evelyn Waugh","Herman Melville","J. R. R. Tolkien"]\n$.store.* \t\t\tAll items in store, which are some books and a red bicycle.\n$.store..price \t\tThe price of everything in the store\n$..book[2] \t\t\tThe third book\n$..book[(@.length-1)] or $..book[-1\:] \tThe last book in order\n$..book[0,1] or $..book[\:2] \tThe first two books\n$..book[?(@.isbn)] \t\tFilter all books with isbn number\n$..book[?(@.price<10)] \t\tFilter all books wholse price is less than 10\n$..* \t\t\tAll Elements in XML document. All members of JSON structure. \n$.store.book[0]\t\tReturns the details of the first book\: reference,Nigel Rees,Sayings of the Century,8.95\n$.store.bicycle\t\t\tReturns the details of the bicycle including null in JSON format\: {"color"\:"red","price"\:null}
-2a11c7bc-c046-4a3c-b144-faa2a31e3ce9.9cc99844-4547-4121-811a-a520e3346922.description=<pre>This is a soft copy of 'Http Client' customized for the GET method (the input 'method'\='GET' should not be changed). Check the linked 'Http Client' operation.\n\nInputs\n    url - The web address to make the request to. This must be a standard URL as specified in RFC 3986. This is a required input.\nFormat\: scheme\://domain\:port/path?query_string\#fragment_id\nExamples\: https\://[fe80\:\:1260\:4bff\:fe49\:42fc]\:8080/my/path?key1\=val1&key2\=val2\#my_fragment\n    authType - The type of authentication used by this operation when trying to execute the request on the target server. The authentication is not preemptive\: a plain request not including authentication info will be made and only when the server responds with a 'WWW-Authenticate' header the client will send required headers. If the server needs no authentication but you specify one in this input the request will work nevertheless. The client cannot choose the authentication method and there is no fallback so you have to know which one you need. If the web application and proxy use different authentication types, these must be specified like in the Example model. \nDefault value\: Basic\nValid values\: Basic, digest, ntlm, kerberos, any, anonymous, "" or a list of valid values separated by comma.\nExample\: Basic,digest\n    username - The user name used for authentication. For NTLM authentication, the required format is 'domain\\user' and if you only specify the 'user' it will append a dot like '.\\user' so that a local user on the target machine can be used. In order for all authentication schemes to work (except Kerberos) username is required.\n    password - The password used for authentication.\n    preemptiveAuth - If this field is 'true' authentication info will be sent in the first request. If this is 'false' a request with no authentication info will be made and if server responds with 401 and a header like WWW-Authenticate\: Basic realm\="myRealm" only then the authentication info will be sent.\nDefault value\: true\nValid values\: true, false\n    proxyHost - The proxy server used to access the web site.\n    proxyPort - The proxy server port. Default value\: 8080. Valid values\: -1, and positive integer values. When the value is '-1' the default port of the scheme, specified in the 'proxyHost', will be used.\n    proxyUsername - The user name used when connecting to the proxy. The 'authType' input will be used to choose authentication type. The 'Basic' and 'Digest' proxy auth type are supported.\n    proxyPassword - The proxy server password associated with the proxyUsername input value.\n    tlsVersion  - This input allows a list of comma seperated values of the specific protocols to be used.Valid values SSLv3, TLSv1,TLSv1.1,TLSv1.2\nDefault value\:TLSv1.2\n    allowedCyphers - A comma delimited list of cyphers to use. The value of this input will be ignored if 'tlsVersion' does not contain 'TLSv1.2'. This capability is provided \u201Cas is\u201D, please see product documentation for further security considerations. In order to connect successfully to the target host, it should accept at least one of the following cyphers. If this is not the case, it is the user's responsibility to configure the host accordingly or to update the list of allowed cyphers.\nDefault values\: TLS_DHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_256_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_RSA_WITH_AES_256_GCM_SHA384,TLS_RSA_WITH_AES_256_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256\n    trustAllRoots - Specifies whether to enable weak security over SSL/TSL. A certificate is trusted even if no trusted certification authority issued it.\nDefault value\: false\nValid values\: true, false\n    x509HostnameVerifier - Specifies the way the server hostname must match a domain name in the subject's Common Name (CN) or subjectAltName field of the X.509 certificate. The hostname verification system prevents communication with other hosts other than the ones you intended. This is done by checking that the hostname is in the subject alternative name extension of the certificate. This system is designed to ensure that, if an attacker(Man In The Middle) redirects traffic to his machine, the client will not accept the connection. If you set this input to "allow_all", this verification is ignored and you become vulnerable to security attacks. For the value "browser_compatible" the hostname verifier works the same way as Curl and Firefox. The hostname must match either the first CN, or any of the subject-alts. A wildcard can occur in the CN, and in any of the subject-alts. The only difference between "browser_compatible" and "strict" is that a wildcard (such as "*.foo.com") with "browser_compatible" matches all subdomains, including "a.b.foo.com". From the security perspective, to provide protection against possible Man-In-The-Middle attacks, we strongly recommend to use "strict" option.\nDefault value\: strict\nValid values\: strict, browser_compatible, allow_all\n    trustKeystore - The pathname of the Java TrustStore file. This contains certificates from other parties that you expect to communicate with, or from Certificate Authorities that you trust to identify other parties.  If the protocol (specified by the 'url') is not 'https' or if trustAllRoots is 'true' this input is ignored.\nDefault value\: <OO_Home>/java/lib/security/cacerts\nFormat\: Java KeyStore (JKS)\n    trustPassword - The password associated with the TrustStore file. If trustAllRoots is false and trustKeystore is empty, trustPassword default will be supplied.\nDefault value\: changeit\n    keystore - The pathname of the Java KeyStore file. You only need this if the server requires client authentication. If the protocol (specified by the 'url') is not 'https' or if trustAllRoots is 'true' this input is ignored.\nDefault value\: <OO_Home>/java/lib/security/cacerts\nFormat\: Java KeyStore (JKS)\n    keystorePassword - The password associated with the KeyStore file. If trustAllRoots is false and keystore is empty, keystorePassword default will be supplied.\nDefault value\: changeit\n    connectTimeout - The time to wait for a connection to be established, in seconds. A timeout value of '0' represents an infinite timeout.\nDefault value\: 0\nFormat\: an integer representing seconds\nExamples\: 10, 20\n    socketTimeout - The timeout for waiting for data (a maximum period inactivity between two consecutive data packets), in seconds. A socketTimeout value of '0' represents an infinite timeout.\nDefault value\: 0\nFormat\: an integer representing seconds\n    useCookies - Specifies whether to enable cookie tracking or not. Cookies are stored between consecutive calls in a serializable session object therefore they will be available on a branch level (same subflow, same lane). If you specify a non-boolean value, the default value is used.\nDefault value\: true\nValid values\: true,false\n    keepAlive - Specifies whether to create a shared connection that will be used in subsequent calls. If keepAlive is false, the already open connection will be used and after execution it will close it. The operation will use a connection pool stored in a GlobalSessionObject that will be available throughout the execution (the flow and subflows, between parallel split lanes).\nDefault value\: true\nValid values\: true, false\n    connectionsMaxPerRoute - The maximum limit of connections on a per route basis. The default will create no more than 2 concurrent connections per given route.\nDefault value\: 2\n    connectionsMaxTotal - The maximum limit of connections in total. The default will create no more than 20 concurrent connections in total.\nDefault value\: 20\n    followRedirects - Specifies whether the HTTP client automatically follows redirects.  Redirects explicitly prohibited by the HTTP specification as requiring user intervention will not be followed (redirects on POST and PUT requests that are converted to GET requests). If you specify a non-boolean value, the default value is used.\nDefault value\: true\nValid values\: true, false\n    headers - The list containing the headers to use for the request separated by new line (CRLF).The header name - value pair will be separated by "\:".\nFormat\: Conforming with HTTP standard for headers (RFC 2616).\nExamples\: Accept\:text/plain\n    destinationFile - The absolute path of a file on disk where to save the entity returned by the response. 'returnResult' will no longer be populated with the entity if this is specified. You should not use this for method\=HEAD or OPTIONS.\tExample\: C\:\\temp\\destinationFile.txt\n    responseCharacterSet - The character encoding to be used for the HTTP response. If responseCharacterSet is empty, the charset from the 'Content-Type' HTTP response header will be used. If responseCharacterSet is empty and the charset from the HTTP response Content-Type header is empty, the default value will be used. You should not use this for method\=HEAD or OPTIONS.\nDefault value\: ISO-8859-1\n    queryParams - The list containing query parameters to append to the URL. The names and the values must not be URL encoded unless you specify "queryParamsAreURLEncoded"\=true because if they are encoded and "queryParamsAreURLEncoded"\=false they will get double encoded. The separator between name-value pairs is  "&". The query name will be separated from query value by "\=". Note that you need to URL encode at least "&" to "%26" and "\=" to "%3D" and set "queryParamsAreURLEncoded"\="true" if you leave the other special URL characters unencoded they will be encoded by the HTTP Client.\nExamples\: parameterName1\=parameterValue1&parameterName2\=parameterValue2;\n    queryParamsAreURLEncoded - Specifies whether to encode  (according to the url encoding standard) the queryParams. If you set "queryParamsAreURLEncoded"\=true and you have invalid characters in 'queryParams' they will get encoded anyway. If you specify a non-boolean value, the default value is used.\nDefault value\: false\nValid values\: true, false\n    queryParamsAreFormEncoded - Specifies whether to encode the queryParams in the the default format used by the apache http client library - form format. If this input is true then all characters will be encoded based on the queryParamsAreURLEncoded input.If queryParamsAreFormEncoded\=false all reserved chars are not encoded no matter of queryParamsAreURLEncoded input.The only exceptions are for space(' ')character which is encoded as %20 and + (plus) which is encoded as %20 and not encoded if queryParamsAreURLEncoded\=false. Check the "v2.0" folder description for more details.\nDefault value\: true. \nValid values\: true, false\nExample\: query\=test te%20@st will be encoded in query\=test%20te%20@st\n    method - The HTTP method used. This is a required input.\n\nOutputs\n    returnResult - This will contain the response entity (unless 'destinationFile' is specified). In case of an error this output will contain the error message.\n    exception - In case of success response, this result is empty. In case of failure response, this result contains the java stack trace of the runtime exception.\n    statusCode - The HTTP status code.\nFormat\: 1xx (Informational - Request received, continuing process), 2xx (Success - The action was successfully received, understood, and accepted), 3xx (Redirection - Further action must be taken in order to complete the request), 4xx (Client Error - The request contains bad syntax or cannot be fulfilled), 5xx Server Error - The server failed to fulfil an apparently valid request)\nExamples\: 200, 404\n    finalLocation - The final location after redirects.\nFormat\: URL\n    responseHeaders - The list containing the headers of the response message, separated by newline.\nFormat\: This is conforming with HTTP standard for headers (RFC 2616).\n    protocolVersion - The HTTP protocol version.\nExamples\: HTTP/1.1\n    reasonPhrase - The reason phrase from the origin HTTP response. This depends on the status code and are according to RFC 1945 and RFC 2048\nExamples\: (HTTP 1.0)\: OK, Created, Accepted, No Content, Moved Permanently, Moved Temporarily, Not Modified, Bad Request, Unauthorized, Forbidden, Not Found, Internal Server Error, Not Implemented, Bad Gateway, Service Unavailable\tValues (HTTP 1.1)\: Continue, Temporary Redirect, Method Not Allowed, Conflict, Precondition Failed, Request Too Long, Request-URI Too Long, Unsupported Media Type, Multiple Choices, See Other, Use Proxy, Payment Required, Not Acceptable, Proxy Authentication Required, Request Timeout, Switching Protocols, Non Authoritative Information, Reset Content, Partial Content, Gateway Timeout, Http Version Not Supported, Gone, Length Required, Requested Range Not Satisfiable, Expectation Failed\n    returnCode - The returnCode of the operation\: 0 for success, -1 for failure.\n\nResponses\n    success - The operation completed without a runtime exception. So it will go to success for any  http codes even those in the 400-599 range.\n    failure - A runtime exception occurred. This may be due to incorrectly formated inputs (authType, contentType, headers, method, proxy, queryParams, requestCharacterSet, responseCharacterSet, truststore, url), or failed ntlm or Kerberos authentication.\n\nNotes\nCheck the "v2.0" folder description for more help.\n</pre>\n
-2a11c7bc-c046-4a3c-b144-faa2a31e3ce9.d7509155-cc4d-46dc-8ccb-d0f1b89fb0b0.description=<pre>Checks if a number or word is greater than another number or word. Word comparison is case-sensitive in alphabetical order.\n\nInputs\:\nvalue1 - The first value.\nvalue2 - The second value.\n\nReturns\:\nvalue1 > value2\n\nResponses\:\nsuccess - The boolean operation was evaluated to true.\nfailure - Something went wrong or the boolean operation returned false.\n</pre>
+<flow id="c05d3665-a2d8-4d36-bdaa-87cf63af4568">
+  <descriptionCdata><![CDATA[c05d3665-a2d8-4d36-bdaa-87cf63af4568.1dea623b-387e-4b21-8162-421d39036e3d.description=This operation takes a reference to JSON (in the form of a string) and runs a specified JSON Path query on it. It returns the results as a JSON Object. \n\nInputs\:\n    json - The JSON in the form of a string.\n    jsonPathQuery - The JSON Path query to run. See details and examples in the Notes section below.\n\nResults\:\n    returnResult - This is the primary output. It contains the resulted JSON from the given path.\n\nResponses\:\n    success - The operation completed as stated in the description.\n    failure - The operation completed unsuccessfully.\n\nNotes\:\n1.Query syntax\:\nJSONPath \t\tDescription\n------------                           -------------     \n$ \t\tThe root object/element\n@ \t\tThe current object/element\n. or [] \t\tChild operator\nn/a \t\tParent operator\n.. \t\tRecursive descent. JSONPath borrows this syntax from E4X.\n* \t\tWildcard. All objects/elements regardless of their names.\nn/a \t\tAttribute access. JSON structures do not have attributes.\n[] \t\tSubscript operator. XPath uses it to iterate over element collections and for predicates. In JSON it is the native array operator.\n[,] \t\tUnion operator in XPath results in a combination of node sets. JSONPath allows alternate names or array indices as a set.\n[start\:end\:step] \tArray slice operator borrowed from ES4.\n?() \t\tApplies a filter (script) expression.\n() \t\tSript expression, using the underlying script engine.\n\n2.Examples\:\nThe examples below use the following JSON string value\:\n{\n    "store"\: {\n        "book"\: [\n            {\n                "category"\: "reference",\n                "author"\: "Nigel Rees",\n                "title"\: "Sayings of the Century",\n                "price"\: 8.95\n            },\n            {\n                "category"\: "fiction",\n                "author"\: "Evelyn Waugh",\n                "title"\: "Sword of Honour",\n                "price"\: 12.99\n            },\n            {\n                "category"\: "fiction",\n                "author"\: "Herman Melville",\n                "title"\: "Moby Dick",\n                "isbn"\: "0-553-21311-3",\n                "price"\: 8.99\n            },\n            {\n                "category"\: "fiction",\n                "author"\: "J. R. R. Tolkien",\n                "title"\: "The Lord of the Rings",\n                "isbn"\: "0-395-19395-8",\n                "price"\: 22.99\n            }\n        ],\n        "bicycle"\: {\n            "color"\: "red",\n            "price"\: null\n        }\n    },\n    "expensive"\: "10"\n}\n\nJSONPath \t\t\tResult\n------------                                                ---------\n$.store.book[*].author \t\tThe authors of all books in the store\n$...author \t\t\tAll authors\: ["Nigel Rees","Evelyn Waugh","Herman Melville","J. R. R. Tolkien"]\n$.store.* \t\t\tAll items in store, which are some books and a red bicycle.\n$.store..price \t\tThe price of everything in the store\n$..book[2] \t\t\tThe third book\n$..book[(@.length-1)] or $..book[-1\:] \tThe last book in order\n$..book[0,1] or $..book[\:2] \tThe first two books\n$..book[?(@.isbn)] \t\tFilter all books with isbn number\n$..book[?(@.price<10)] \t\tFilter all books wholse price is less than 10\n$..* \t\t\tAll Elements in XML document. All members of JSON structure. \n$.store.book[0]\t\tReturns the details of the first book\: reference,Nigel Rees,Sayings of the Century,8.95\n$.store.bicycle\t\t\tReturns the details of the bicycle including null in JSON format\: {"color"\:"red","price"\:null}
+c05d3665-a2d8-4d36-bdaa-87cf63af4568.7c51df5d-55b8-4121-bd76-681504c67a7a.description=<pre>Checks if a number or word is greater than another number or word. Word comparison is case-sensitive in alphabetical order.\n\nInputs\:\nvalue1 - The first value.\nvalue2 - The second value.\n\nReturns\:\nvalue1 > value2\n\nResponses\:\nsuccess - The boolean operation was evaluated to true.\nfailure - Something went wrong or the boolean operation returned false.\n</pre>
+c05d3665-a2d8-4d36-bdaa-87cf63af4568.a071348a-5eb4-4d16-861f-5d410884a685.description=This operation takes a reference to JSON (in the form of a string) and runs a specified JSON Path query on it. It returns the results as a JSON Object. \n\nInputs\:\n    json - The JSON in the form of a string.\n    jsonPathQuery - The JSON Path query to run. See details and examples in the Notes section below.\n\nResults\:\n    returnResult - This is the primary output. It contains the resulted JSON from the given path.\n\nResponses\:\n    success - The operation completed as stated in the description.\n    failure - The operation completed unsuccessfully.\n\nNotes\:\n1.Query syntax\:\nJSONPath \t\tDescription\n------------                           -------------     \n$ \t\tThe root object/element\n@ \t\tThe current object/element\n. or [] \t\tChild operator\nn/a \t\tParent operator\n.. \t\tRecursive descent. JSONPath borrows this syntax from E4X.\n* \t\tWildcard. All objects/elements regardless of their names.\nn/a \t\tAttribute access. JSON structures do not have attributes.\n[] \t\tSubscript operator. XPath uses it to iterate over element collections and for predicates. In JSON it is the native array operator.\n[,] \t\tUnion operator in XPath results in a combination of node sets. JSONPath allows alternate names or array indices as a set.\n[start\:end\:step] \tArray slice operator borrowed from ES4.\n?() \t\tApplies a filter (script) expression.\n() \t\tSript expression, using the underlying script engine.\n\n2.Examples\:\nThe examples below use the following JSON string value\:\n{\n    "store"\: {\n        "book"\: [\n            {\n                "category"\: "reference",\n                "author"\: "Nigel Rees",\n                "title"\: "Sayings of the Century",\n                "price"\: 8.95\n            },\n            {\n                "category"\: "fiction",\n                "author"\: "Evelyn Waugh",\n                "title"\: "Sword of Honour",\n                "price"\: 12.99\n            },\n            {\n                "category"\: "fiction",\n                "author"\: "Herman Melville",\n                "title"\: "Moby Dick",\n                "isbn"\: "0-553-21311-3",\n                "price"\: 8.99\n            },\n            {\n                "category"\: "fiction",\n                "author"\: "J. R. R. Tolkien",\n                "title"\: "The Lord of the Rings",\n                "isbn"\: "0-395-19395-8",\n                "price"\: 22.99\n            }\n        ],\n        "bicycle"\: {\n            "color"\: "red",\n            "price"\: null\n        }\n    },\n    "expensive"\: "10"\n}\n\nJSONPath \t\t\tResult\n------------                                                ---------\n$.store.book[*].author \t\tThe authors of all books in the store\n$...author \t\t\tAll authors\: ["Nigel Rees","Evelyn Waugh","Herman Melville","J. R. R. Tolkien"]\n$.store.* \t\t\tAll items in store, which are some books and a red bicycle.\n$.store..price \t\tThe price of everything in the store\n$..book[2] \t\t\tThe third book\n$..book[(@.length-1)] or $..book[-1\:] \tThe last book in order\n$..book[0,1] or $..book[\:2] \tThe first two books\n$..book[?(@.isbn)] \t\tFilter all books with isbn number\n$..book[?(@.price<10)] \t\tFilter all books wholse price is less than 10\n$..* \t\t\tAll Elements in XML document. All members of JSON structure. \n$.store.book[0]\t\tReturns the details of the first book\: reference,Nigel Rees,Sayings of the Century,8.95\n$.store.bicycle\t\t\tReturns the details of the bicycle including null in JSON format\: {"color"\:"red","price"\:null}
+c05d3665-a2d8-4d36-bdaa-87cf63af4568.c8364fda-7524-4bb8-830b-0a70a1e01cd8.description=This operation takes a reference to JSON (in the form of a string) and runs a specified JSON Path query on it. It returns the results as a JSON Object. \n\nInputs\:\n    json - The JSON in the form of a string.\n    jsonPathQuery - The JSON Path query to run. See details and examples in the Notes section below.\n\nResults\:\n    returnResult - This is the primary output. It contains the resulted JSON from the given path.\n\nResponses\:\n    success - The operation completed as stated in the description.\n    failure - The operation completed unsuccessfully.\n\nNotes\:\n1.Query syntax\:\nJSONPath \t\tDescription\n------------                           -------------     \n$ \t\tThe root object/element\n@ \t\tThe current object/element\n. or [] \t\tChild operator\nn/a \t\tParent operator\n.. \t\tRecursive descent. JSONPath borrows this syntax from E4X.\n* \t\tWildcard. All objects/elements regardless of their names.\nn/a \t\tAttribute access. JSON structures do not have attributes.\n[] \t\tSubscript operator. XPath uses it to iterate over element collections and for predicates. In JSON it is the native array operator.\n[,] \t\tUnion operator in XPath results in a combination of node sets. JSONPath allows alternate names or array indices as a set.\n[start\:end\:step] \tArray slice operator borrowed from ES4.\n?() \t\tApplies a filter (script) expression.\n() \t\tSript expression, using the underlying script engine.\n\n2.Examples\:\nThe examples below use the following JSON string value\:\n{\n    "store"\: {\n        "book"\: [\n            {\n                "category"\: "reference",\n                "author"\: "Nigel Rees",\n                "title"\: "Sayings of the Century",\n                "price"\: 8.95\n            },\n            {\n                "category"\: "fiction",\n                "author"\: "Evelyn Waugh",\n                "title"\: "Sword of Honour",\n                "price"\: 12.99\n            },\n            {\n                "category"\: "fiction",\n                "author"\: "Herman Melville",\n                "title"\: "Moby Dick",\n                "isbn"\: "0-553-21311-3",\n                "price"\: 8.99\n            },\n            {\n                "category"\: "fiction",\n                "author"\: "J. R. R. Tolkien",\n                "title"\: "The Lord of the Rings",\n                "isbn"\: "0-395-19395-8",\n                "price"\: 22.99\n            }\n        ],\n        "bicycle"\: {\n            "color"\: "red",\n            "price"\: null\n        }\n    },\n    "expensive"\: "10"\n}\n\nJSONPath \t\t\tResult\n------------                                                ---------\n$.store.book[*].author \t\tThe authors of all books in the store\n$...author \t\t\tAll authors\: ["Nigel Rees","Evelyn Waugh","Herman Melville","J. R. R. Tolkien"]\n$.store.* \t\t\tAll items in store, which are some books and a red bicycle.\n$.store..price \t\tThe price of everything in the store\n$..book[2] \t\t\tThe third book\n$..book[(@.length-1)] or $..book[-1\:] \tThe last book in order\n$..book[0,1] or $..book[\:2] \tThe first two books\n$..book[?(@.isbn)] \t\tFilter all books with isbn number\n$..book[?(@.price<10)] \t\tFilter all books wholse price is less than 10\n$..* \t\t\tAll Elements in XML document. All members of JSON structure. \n$.store.book[0]\t\tReturns the details of the first book\: reference,Nigel Rees,Sayings of the Century,8.95\n$.store.bicycle\t\t\tReturns the details of the bicycle including null in JSON format\: {"color"\:"red","price"\:null}
+c05d3665-a2d8-4d36-bdaa-87cf63af4568.c8f548d0-6049-489d-9bcd-b3902b9edeca.description=<pre>Checks if a number or word is equal to another number or word. Word comparison is case-sensitive in alphabetical order.\n\nInputs\:\nvalue1 - The first value.\nvalue2 - The second value.\n\nReturns\:\nvalue1 \=\= value2\n\nResponses\:\nsuccess - The boolean operation was evaluated to true.\nfailure - Something went wrong or the boolean operation returned false.\n</pre>
+c05d3665-a2d8-4d36-bdaa-87cf63af4568.f019b836-d2f3-4d26-a1e7-c36e14c5acb4.description=<pre>This is a soft copy of 'Http Client' customized for the GET method (the input 'method'\='GET' should not be changed). Check the linked 'Http Client' operation.\n\nInputs\n    url - The web address to make the request to. This must be a standard URL as specified in RFC 3986. This is a required input.\nFormat\: scheme\://domain\:port/path?query_string\#fragment_id\nExamples\: https\://[fe80\:\:1260\:4bff\:fe49\:42fc]\:8080/my/path?key1\=val1&key2\=val2\#my_fragment\n    authType - The type of authentication used by this operation when trying to execute the request on the target server. The authentication is not preemptive\: a plain request not including authentication info will be made and only when the server responds with a 'WWW-Authenticate' header the client will send required headers. If the server needs no authentication but you specify one in this input the request will work nevertheless. The client cannot choose the authentication method and there is no fallback so you have to know which one you need. If the web application and proxy use different authentication types, these must be specified like in the Example model. \nDefault value\: Basic\nValid values\: Basic, digest, ntlm, kerberos, any, anonymous, "" or a list of valid values separated by comma.\nExample\: Basic,digest\n    username - The user name used for authentication. For NTLM authentication, the required format is 'domain\\user' and if you only specify the 'user' it will append a dot like '.\\user' so that a local user on the target machine can be used. In order for all authentication schemes to work (except Kerberos) username is required.\n    password - The password used for authentication.\n    preemptiveAuth - If this field is 'true' authentication info will be sent in the first request. If this is 'false' a request with no authentication info will be made and if server responds with 401 and a header like WWW-Authenticate\: Basic realm\="myRealm" only then the authentication info will be sent.\nDefault value\: true\nValid values\: true, false\n    proxyHost - The proxy server used to access the web site.\n    proxyPort - The proxy server port. Default value\: 8080. Valid values\: -1, and positive integer values. When the value is '-1' the default port of the scheme, specified in the 'proxyHost', will be used.\n    proxyUsername - The user name used when connecting to the proxy. The 'authType' input will be used to choose authentication type. The 'Basic' and 'Digest' proxy auth type are supported.\n    proxyPassword - The proxy server password associated with the proxyUsername input value.\n    tlsVersion  - This input allows a list of comma seperated values of the specific protocols to be used.Valid values SSLv3, TLSv1,TLSv1.1,TLSv1.2\nDefault value\:TLSv1.2\n    allowedCyphers - A comma delimited list of cyphers to use. The value of this input will be ignored if 'tlsVersion' does not contain 'TLSv1.2'. This capability is provided \u201Cas is\u201D, please see product documentation for further security considerations. In order to connect successfully to the target host, it should accept at least one of the following cyphers. If this is not the case, it is the user's responsibility to configure the host accordingly or to update the list of allowed cyphers.\nDefault values\: TLS_DHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_256_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_RSA_WITH_AES_256_GCM_SHA384,TLS_RSA_WITH_AES_256_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256\n    trustAllRoots - Specifies whether to enable weak security over SSL/TSL. A certificate is trusted even if no trusted certification authority issued it.\nDefault value\: false\nValid values\: true, false\n    x509HostnameVerifier - Specifies the way the server hostname must match a domain name in the subject's Common Name (CN) or subjectAltName field of the X.509 certificate. The hostname verification system prevents communication with other hosts other than the ones you intended. This is done by checking that the hostname is in the subject alternative name extension of the certificate. This system is designed to ensure that, if an attacker(Man In The Middle) redirects traffic to his machine, the client will not accept the connection. If you set this input to "allow_all", this verification is ignored and you become vulnerable to security attacks. For the value "browser_compatible" the hostname verifier works the same way as Curl and Firefox. The hostname must match either the first CN, or any of the subject-alts. A wildcard can occur in the CN, and in any of the subject-alts. The only difference between "browser_compatible" and "strict" is that a wildcard (such as "*.foo.com") with "browser_compatible" matches all subdomains, including "a.b.foo.com". From the security perspective, to provide protection against possible Man-In-The-Middle attacks, we strongly recommend to use "strict" option.\nDefault value\: strict\nValid values\: strict, browser_compatible, allow_all\n    trustKeystore - The pathname of the Java TrustStore file. This contains certificates from other parties that you expect to communicate with, or from Certificate Authorities that you trust to identify other parties.  If the protocol (specified by the 'url') is not 'https' or if trustAllRoots is 'true' this input is ignored.\nDefault value\: <OO_Home>/java/lib/security/cacerts\nFormat\: Java KeyStore (JKS)\n    trustPassword - The password associated with the TrustStore file. If trustAllRoots is false and trustKeystore is empty, trustPassword default will be supplied.\nDefault value\: changeit\n    keystore - The pathname of the Java KeyStore file. You only need this if the server requires client authentication. If the protocol (specified by the 'url') is not 'https' or if trustAllRoots is 'true' this input is ignored.\nDefault value\: <OO_Home>/java/lib/security/cacerts\nFormat\: Java KeyStore (JKS)\n    keystorePassword - The password associated with the KeyStore file. If trustAllRoots is false and keystore is empty, keystorePassword default will be supplied.\nDefault value\: changeit\n    connectTimeout - The time to wait for a connection to be established, in seconds. A timeout value of '0' represents an infinite timeout.\nDefault value\: 0\nFormat\: an integer representing seconds\nExamples\: 10, 20\n    socketTimeout - The timeout for waiting for data (a maximum period inactivity between two consecutive data packets), in seconds. A socketTimeout value of '0' represents an infinite timeout.\nDefault value\: 0\nFormat\: an integer representing seconds\n    useCookies - Specifies whether to enable cookie tracking or not. Cookies are stored between consecutive calls in a serializable session object therefore they will be available on a branch level (same subflow, same lane). If you specify a non-boolean value, the default value is used.\nDefault value\: true\nValid values\: true,false\n    keepAlive - Specifies whether to create a shared connection that will be used in subsequent calls. If keepAlive is false, the already open connection will be used and after execution it will close it. The operation will use a connection pool stored in a GlobalSessionObject that will be available throughout the execution (the flow and subflows, between parallel split lanes).\nDefault value\: true\nValid values\: true, false\n    connectionsMaxPerRoute - The maximum limit of connections on a per route basis. The default will create no more than 2 concurrent connections per given route.\nDefault value\: 2\n    connectionsMaxTotal - The maximum limit of connections in total. The default will create no more than 20 concurrent connections in total.\nDefault value\: 20\n    followRedirects - Specifies whether the HTTP client automatically follows redirects.  Redirects explicitly prohibited by the HTTP specification as requiring user intervention will not be followed (redirects on POST and PUT requests that are converted to GET requests). If you specify a non-boolean value, the default value is used.\nDefault value\: true\nValid values\: true, false\n    headers - The list containing the headers to use for the request separated by new line (CRLF).The header name - value pair will be separated by "\:".\nFormat\: Conforming with HTTP standard for headers (RFC 2616).\nExamples\: Accept\:text/plain\n    destinationFile - The absolute path of a file on disk where to save the entity returned by the response. 'returnResult' will no longer be populated with the entity if this is specified. You should not use this for method\=HEAD or OPTIONS.\tExample\: C\:\\temp\\destinationFile.txt\n    responseCharacterSet - The character encoding to be used for the HTTP response. If responseCharacterSet is empty, the charset from the 'Content-Type' HTTP response header will be used. If responseCharacterSet is empty and the charset from the HTTP response Content-Type header is empty, the default value will be used. You should not use this for method\=HEAD or OPTIONS.\nDefault value\: ISO-8859-1\n    queryParams - The list containing query parameters to append to the URL. The names and the values must not be URL encoded unless you specify "queryParamsAreURLEncoded"\=true because if they are encoded and "queryParamsAreURLEncoded"\=false they will get double encoded. The separator between name-value pairs is  "&". The query name will be separated from query value by "\=". Note that you need to URL encode at least "&" to "%26" and "\=" to "%3D" and set "queryParamsAreURLEncoded"\="true" if you leave the other special URL characters unencoded they will be encoded by the HTTP Client.\nExamples\: parameterName1\=parameterValue1&parameterName2\=parameterValue2;\n    queryParamsAreURLEncoded - Specifies whether to encode  (according to the url encoding standard) the queryParams. If you set "queryParamsAreURLEncoded"\=true and you have invalid characters in 'queryParams' they will get encoded anyway. If you specify a non-boolean value, the default value is used.\nDefault value\: false\nValid values\: true, false\n    queryParamsAreFormEncoded - Specifies whether to encode the queryParams in the the default format used by the apache http client library - form format. If this input is true then all characters will be encoded based on the queryParamsAreURLEncoded input.If queryParamsAreFormEncoded\=false all reserved chars are not encoded no matter of queryParamsAreURLEncoded input.The only exceptions are for space(' ')character which is encoded as %20 and + (plus) which is encoded as %20 and not encoded if queryParamsAreURLEncoded\=false. Check the "v2.0" folder description for more details.\nDefault value\: true. \nValid values\: true, false\nExample\: query\=test te%20@st will be encoded in query\=test%20te%20@st\n    method - The HTTP method used. This is a required input.\n\nOutputs\n    returnResult - This will contain the response entity (unless 'destinationFile' is specified). In case of an error this output will contain the error message.\n    exception - In case of success response, this result is empty. In case of failure response, this result contains the java stack trace of the runtime exception.\n    statusCode - The HTTP status code.\nFormat\: 1xx (Informational - Request received, continuing process), 2xx (Success - The action was successfully received, understood, and accepted), 3xx (Redirection - Further action must be taken in order to complete the request), 4xx (Client Error - The request contains bad syntax or cannot be fulfilled), 5xx Server Error - The server failed to fulfil an apparently valid request)\nExamples\: 200, 404\n    finalLocation - The final location after redirects.\nFormat\: URL\n    responseHeaders - The list containing the headers of the response message, separated by newline.\nFormat\: This is conforming with HTTP standard for headers (RFC 2616).\n    protocolVersion - The HTTP protocol version.\nExamples\: HTTP/1.1\n    reasonPhrase - The reason phrase from the origin HTTP response. This depends on the status code and are according to RFC 1945 and RFC 2048\nExamples\: (HTTP 1.0)\: OK, Created, Accepted, No Content, Moved Permanently, Moved Temporarily, Not Modified, Bad Request, Unauthorized, Forbidden, Not Found, Internal Server Error, Not Implemented, Bad Gateway, Service Unavailable\tValues (HTTP 1.1)\: Continue, Temporary Redirect, Method Not Allowed, Conflict, Precondition Failed, Request Too Long, Request-URI Too Long, Unsupported Media Type, Multiple Choices, See Other, Use Proxy, Payment Required, Not Acceptable, Proxy Authentication Required, Request Timeout, Switching Protocols, Non Authoritative Information, Reset Content, Partial Content, Gateway Timeout, Http Version Not Supported, Gone, Length Required, Requested Range Not Satisfiable, Expectation Failed\n    returnCode - The returnCode of the operation\: 0 for success, -1 for failure.\n\nResponses\n    success - The operation completed without a runtime exception. So it will go to success for any  http codes even those in the 400-599 range.\n    failure - A runtime exception occurred. This may be due to incorrectly formated inputs (authType, contentType, headers, method, proxy, queryParams, requestCharacterSet, responseCharacterSet, truststore, url), or failed ntlm or Kerberos authentication.\n\nNotes\nCheck the "v2.0" folder description for more help.\n</pre>\n
 ]]></descriptionCdata>
   <annotation></annotation>
   <name>Get Prefix by Site</name>
   <categories/>
   <inputs>
-    <staticBinding id="0d29b85e-476c-4850-bed7-4b93ad8f91a5">
+    <staticBinding id="0406e3bd-d6c4-4908-8fdf-196ec394d645">
       <annotation></annotation>
       <assignFromContext>false</assignFromContext>
       <assignToContext>true</assignToContext>
@@ -26,7 +26,7 @@
     </staticBinding>
   </inputs>
   <possibleResponses>
-    <opResponse id="005ca07b-ac3d-4751-804a-463277a6ed53">
+    <opResponse id="06e4c98d-c7eb-4007-837d-ca9e775adad1">
       <annotation></annotation>
       <name>success</name>
       <isDefault>true</isDefault>
@@ -34,7 +34,7 @@
       <type>RESOLVED</type>
       <matchRules/>
     </opResponse>
-    <opResponse id="44402591-c3e1-42fa-9ec3-4a0b9fca4bd1">
+    <opResponse id="e64a3b51-8039-4ebf-bf47-d21768127fca">
       <annotation></annotation>
       <name>failure</name>
       <isDefault>false</isDefault>
@@ -42,7 +42,7 @@
       <type>ERROR</type>
       <matchRules/>
     </opResponse>
-    <opResponse id="3c548466-ac56-427b-82e6-4a9f0d22c9a5">
+    <opResponse id="cf7e3aac-9aae-410c-b410-f4c83ac36cf9">
       <annotation></annotation>
       <name>unknown</name>
       <isDefault>false</isDefault>
@@ -52,14 +52,14 @@
     </opResponse>
   </possibleResponses>
   <availableResultExpressions>
-    <expression id="eefa86ae-1cfc-4463-a72c-8c341cfb725f">
+    <expression id="98ceb926-6ed6-485a-929e-5084f4f95474">
       <annotation></annotation>
       <name>prefixId</name>
       <fieldName>prefixId</fieldName>
       <sourceType>RAWRESULT</sourceType>
       <filters/>
     </expression>
-    <expression id="32ac3c8e-cb16-4f56-9a80-b9bc009d3e33">
+    <expression id="b7bfc408-6e03-436e-a848-1c60c7c10cb0">
       <annotation></annotation>
       <name>prefixName</name>
       <fieldName>prefixName</fieldName>
@@ -67,14 +67,14 @@
       <filters/>
     </expression>
   </availableResultExpressions>
-  <resultExpression id="66fc8c92-39d9-4bc1-8725-e6b8cf8bfc1e">
+  <resultExpression id="debfc291-41b2-49b8-8e3a-d729c4c0d63e">
     <annotation></annotation>
     <name>FailureMessage</name>
     <fieldName>FailureMessage</fieldName>
     <sourceType>RAWRESULT</sourceType>
     <filters/>
   </resultExpression>
-  <iconSpec id="a7da25d1-92b8-40bb-99d4-cbccf9aafb92">
+  <iconSpec id="2635f69e-0d64-400e-b00f-e7d6ede5dda7">
     <baseIcon>flow.png</baseIcon>
     <basePath>System</basePath>
     <readOnly>false</readOnly>
@@ -85,8 +85,8 @@
   <compatibleRuntimeContext>false</compatibleRuntimeContext>
   <historyCheckPointFlow>true</historyCheckPointFlow>
   <steps>
-    <step id="9cc99844-4547-4121-811a-a520e3346922">
-      <annotation>2a11c7bc-c046-4a3c-b144-faa2a31e3ce9.9cc99844-4547-4121-811a-a520e3346922.description</annotation>
+    <step id="f019b836-d2f3-4d26-a1e7-c36e14c5acb4">
+      <annotation>c05d3665-a2d8-4d36-bdaa-87cf63af4568.f019b836-d2f3-4d26-a1e7-c36e14c5acb4.description</annotation>
       <name>Get IPAM prefix by site</name>
       <bounds>
         <x>240.0</x>
@@ -107,7 +107,7 @@
       <scriptResultStep>false</scriptResultStep>
       <userPrompt></userPrompt>
       <bindings>
-        <staticBinding id="1e1570c1-7f1e-4c63-b060-9a0734367889">
+        <staticBinding id="7ee5ee32-ddfc-4e59-badd-d5ad6bb32aa8">
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
           <inputType>STRING</inputType>
@@ -116,10 +116,10 @@
           <isPersisted>true</isPersisted>
           <inputSymbol>url</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value>${Netbox/NBURL}/prefixes/</value>
+          <value>${Vale/Netbox/NBURL}/prefixes/</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="2a259176-3b7d-4ce7-8663-32f6d2eccebb">
+        <staticBinding id="5f2fa028-f11a-4b97-bc88-640565387b12">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -132,7 +132,7 @@
           <value>Basic</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="ace565b6-9806-4827-a37f-6e29ca507252">
+        <staticBinding id="209f8e79-d514-4573-8649-3a10f8ee5e8c">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -144,7 +144,7 @@
           <listDelimiter>,</listDelimiter>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="f3922565-c016-4eaa-965b-399e9acffc6d">
+        <staticBinding id="5950d9a6-375b-48be-94c1-08da37045db2">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -156,7 +156,7 @@
           <listDelimiter>,</listDelimiter>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="6f247459-ca5b-43a7-a957-e1fbc6620d74">
+        <staticBinding id="bdf666ef-0d75-4a22-a9e9-b709948edb23">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -169,7 +169,7 @@
           <value>true</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="dc4f74e0-51e5-44fe-8dde-971b27589307">
+        <staticBinding id="e4af4423-6dfb-4e4c-b5dd-4404ed46d5b9">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -181,7 +181,7 @@
           <listDelimiter>,</listDelimiter>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="497a6f28-7bb5-497a-9bff-8e5367347da4">
+        <staticBinding id="c9c53079-f21d-4e5e-8da8-cd2026deaba0">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -194,7 +194,7 @@
           <value>8080</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="81f3b894-6e37-4c8c-94f9-e189df419a27">
+        <staticBinding id="6a95db89-2f74-4f19-bc56-994d8bd2a97d">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -206,7 +206,7 @@
           <listDelimiter>,</listDelimiter>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="7c4e6505-1341-4dbf-84b2-26499d1ddcf1">
+        <staticBinding id="441136f1-a148-4f2d-9d95-fa00852dc31e">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -218,7 +218,7 @@
           <listDelimiter>,</listDelimiter>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="a0b45913-620a-4257-b8d9-0b783e2a5c24">
+        <staticBinding id="472c0d3b-8a43-462b-859b-1f4bc0dcd2bb">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -231,7 +231,7 @@
           <value>TLSv1.2</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="c293d5cb-a5f2-477c-8da5-4ce49705d2d9">
+        <staticBinding id="5ca44cc8-9d9f-4842-8ca8-020cc444dc24">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -244,7 +244,7 @@
           <value>TLS_DHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_256_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_RSA_WITH_AES_256_GCM_SHA384,TLS_RSA_WITH_AES_256_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="320f0f6b-adc9-4d13-b410-c4a109b1c2e5">
+        <staticBinding id="6be4a383-0de2-4d26-ae31-95dfb0d3f096">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -257,7 +257,7 @@
           <value>false</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="668a533c-2fa9-4c0b-8118-7a70a1d2a017">
+        <staticBinding id="7c6b5372-f15f-49b9-a036-bc9db04ee189">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -270,7 +270,7 @@
           <value>strict</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="72c975ec-dc87-44b3-a7ce-a090781cda91">
+        <staticBinding id="045c0e3f-3850-45da-a0f4-b096722bc96a">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -282,7 +282,7 @@
           <listDelimiter>,</listDelimiter>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="c26bcf37-68f0-4f93-9796-004c05261ba4">
+        <staticBinding id="f906aa68-57e3-4973-939a-f3c8ea99bf23">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -295,7 +295,7 @@
           <value>changeit</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="f745b16b-90a4-4e4f-a1c4-a3b96ec6f645">
+        <staticBinding id="4d8e22e0-c221-45e8-b579-450f1296473f">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -307,7 +307,7 @@
           <listDelimiter>,</listDelimiter>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="0c94e50a-9c1f-48bf-b771-a7d34037439b">
+        <staticBinding id="1cea0376-aba7-4819-8484-b5464d741dee">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -320,7 +320,7 @@
           <value>changeit</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="34269c35-df15-4207-8855-fdd85ceeb6db">
+        <staticBinding id="0e80f038-2fe6-4c30-a966-72613b61b13c">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -333,7 +333,7 @@
           <value>0</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="ee5d27a3-4782-482a-95eb-52fcbf934e9b">
+        <staticBinding id="c7d4d7a3-f532-4436-8a1d-b66fbde17d70">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -346,7 +346,7 @@
           <value>0</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="d23674a1-7c93-427a-956b-b17172d028d9">
+        <staticBinding id="3b5359d2-a838-48fc-8f32-28c910e624e4">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -359,7 +359,7 @@
           <value>true</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="eb4c7513-90c9-4f44-9497-3ff0252d1ee8">
+        <staticBinding id="f5b19daa-c7e8-48c4-9266-bce32a6101f4">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -372,7 +372,7 @@
           <value>true</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="5af4b2e9-a3a0-442e-a496-5a567906a980">
+        <staticBinding id="b28caefd-6ece-45bc-a5dc-de7a6e362e0d">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -385,7 +385,7 @@
           <value>2</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="68d6da58-e547-43b5-9f11-2dbdb7b9b5e7">
+        <staticBinding id="c7e6ae91-feb7-4aab-8c99-8823b033c692">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -398,7 +398,7 @@
           <value>20</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="b2db7d1f-e024-4d69-8a88-83d36c52d410">
+        <staticBinding id="380c189f-2fff-4bc4-935a-107909d7a0d1">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -411,7 +411,7 @@
           <value>true</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="6075d590-2186-4a92-a06e-e54ae6400f0a">
+        <staticBinding id="e2cfa0e6-c37e-4ee1-8892-7fbdaef53bbe">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -421,11 +421,11 @@
           <isPersisted>true</isPersisted>
           <inputSymbol>headers</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value>Authorization: Token ${Netbox/NBToken}
+          <value>Authorization: Token ${Vale/Netbox/NBToken}
 </value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="c7747888-208e-44c0-839a-665db12e8f0f">
+        <staticBinding id="f2bc434a-0b92-48b8-8b2e-2765d40dbecf">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -437,7 +437,7 @@
           <listDelimiter>,</listDelimiter>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="628799f5-ae19-48fa-9c33-10ac7786a19b">
+        <staticBinding id="06470b27-de16-4b99-ae71-d2f6ec2e05d5">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -449,7 +449,7 @@
           <listDelimiter>,</listDelimiter>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="4e9827e9-a25f-4fbc-b784-f9362dc15c12">
+        <staticBinding id="ea84a53f-01b9-47a4-9ef3-26b71e8e118f">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -462,7 +462,7 @@
           <value>site=${site}&amp;brief=1</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="755fa90a-955f-429e-904b-5d0436248b0f">
+        <staticBinding id="47389225-bd20-4828-8f6b-769a7dbaefe1">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -475,7 +475,7 @@
           <value>false</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="096a1df0-ae10-4c9e-a4b5-2397548047aa">
+        <staticBinding id="ef40b766-22d0-40e2-be61-f5e5be60f89e">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -488,7 +488,7 @@
           <value>true</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="345f954d-563b-4f62-9234-fe71fb7abe57">
+        <staticBinding id="4fef3daa-ce8c-4dbe-97f4-2fbf4a942031">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -503,7 +503,7 @@
         </staticBinding>
       </bindings>
       <transitions>
-        <transition id="7a10192b-700f-4d32-b114-944c81fe7148">
+        <transition id="4d4261c1-bbd8-4f1e-99a4-32ae40e189d6">
           <annotation></annotation>
           <name>failure</name>
           <command>NEXT</command>
@@ -512,10 +512,10 @@
           <shouldHandoff>false</shouldHandoff>
           <transitionValue>0.0</transitionValue>
           <destination>
-            <refId>49b84efa-639c-4828-9db9-a4e61f8f71ac</refId>
+            <refId>ffc75605-6c12-4c5a-b5e3-fcca36b7621a</refId>
           </destination>
           <source>
-            <refId>9cc99844-4547-4121-811a-a520e3346922</refId>
+            <refId>f019b836-d2f3-4d26-a1e7-c36e14c5acb4</refId>
           </source>
           <positions>
             <point>
@@ -532,7 +532,7 @@
             <y>0.0</y>
           </labelPosition>
         </transition>
-        <transition id="c0769678-ee29-4101-85b5-2daa2656d9f3">
+        <transition id="080efe17-0add-4a07-9142-2ae7ccf5cf79">
           <annotation></annotation>
           <name>success</name>
           <command>NEXT</command>
@@ -541,10 +541,10 @@
           <shouldHandoff>false</shouldHandoff>
           <transitionValue>0.0</transitionValue>
           <destination>
-            <refId>0c55fcfb-c128-457f-9de4-aad4d1f0c7f7</refId>
+            <refId>c8f548d0-6049-489d-9bcd-b3902b9edeca</refId>
           </destination>
           <source>
-            <refId>9cc99844-4547-4121-811a-a520e3346922</refId>
+            <refId>f019b836-d2f3-4d26-a1e7-c36e14c5acb4</refId>
           </source>
           <positions>
             <point>
@@ -567,13 +567,13 @@
         <refId>ab413782-7e23-41a7-85a7-79f543cf8858</refId>
       </opRef>
       <assignments>
-        <flowVariableAssignment id="73d47a72-2a3a-4e75-948d-7bf6293c9993">
+        <flowVariableAssignment id="dd93f163-e943-468f-80d3-b20c8c0b8a52">
           <annotation></annotation>
           <name>assignment</name>
           <action>OVERWRITE</action>
           <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
           <contextKey>statusCode</contextKey>
-          <expression id="e96483e7-8c99-45ef-93ef-c11cbd21519f">
+          <expression id="d33e5565-60a6-4c9d-8835-ad5379a0d657">
             <annotation></annotation>
             <name>Result Field: statusCode</name>
             <fieldName>statusCode</fieldName>
@@ -581,13 +581,13 @@
             <filters/>
           </expression>
         </flowVariableAssignment>
-        <flowVariableAssignment id="473fef66-de66-48fd-a7da-459d82e0e9de">
+        <flowVariableAssignment id="528488e3-66d9-49e3-b76d-e384bd06bd3d">
           <annotation></annotation>
           <name>assignment</name>
           <action>OVERWRITE</action>
           <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
           <contextKey>prefixJSON</contextKey>
-          <expression id="929734f4-34ad-42f5-b04d-fd9652a23744">
+          <expression id="61d55819-162e-427e-a391-73b3c3b3475b">
             <annotation></annotation>
             <name>Result Field: returnResult</name>
             <fieldName>returnResult</fieldName>
@@ -598,7 +598,7 @@
       </assignments>
       <throttleSize>0</throttleSize>
     </step>
-    <returnStep id="ec9e0588-5ca6-46e3-b7c4-2b5d224a878d">
+    <returnStep id="2073734d-9ade-427a-9c9c-b53231fa4270">
       <annotation></annotation>
       <name>Resolved : success</name>
       <bounds>
@@ -621,7 +621,7 @@
       <userPrompt></userPrompt>
       <bindings/>
       <transitions>
-        <transition id="0dbf0a5b-8e0a-4107-9565-0582281b5988">
+        <transition id="e483fd8c-dce6-492d-9bd8-be4ddb52393a">
           <annotation></annotation>
           <name>return</name>
           <command>NEXT</command>
@@ -630,10 +630,10 @@
           <shouldHandoff>false</shouldHandoff>
           <transitionValue>0.0</transitionValue>
           <destination>
-            <refId>ec9e0588-5ca6-46e3-b7c4-2b5d224a878d</refId>
+            <refId>2073734d-9ade-427a-9c9c-b53231fa4270</refId>
           </destination>
           <source>
-            <refId>ec9e0588-5ca6-46e3-b7c4-2b5d224a878d</refId>
+            <refId>2073734d-9ade-427a-9c9c-b53231fa4270</refId>
           </source>
           <positions/>
         </transition>
@@ -642,7 +642,7 @@
       <returnStepType>RESOLVED</returnStepType>
       <assignments/>
     </returnStep>
-    <returnStep id="49b84efa-639c-4828-9db9-a4e61f8f71ac">
+    <returnStep id="ffc75605-6c12-4c5a-b5e3-fcca36b7621a">
       <annotation></annotation>
       <name>Error : failure</name>
       <bounds>
@@ -665,7 +665,7 @@
       <userPrompt></userPrompt>
       <bindings/>
       <transitions>
-        <transition id="533088ff-6692-4663-887a-4ccaf32a49e4">
+        <transition id="b8985ce4-2b27-4611-aa03-dae5449fd28e">
           <annotation></annotation>
           <name>return</name>
           <command>NEXT</command>
@@ -674,10 +674,10 @@
           <shouldHandoff>false</shouldHandoff>
           <transitionValue>0.0</transitionValue>
           <destination>
-            <refId>49b84efa-639c-4828-9db9-a4e61f8f71ac</refId>
+            <refId>ffc75605-6c12-4c5a-b5e3-fcca36b7621a</refId>
           </destination>
           <source>
-            <refId>49b84efa-639c-4828-9db9-a4e61f8f71ac</refId>
+            <refId>ffc75605-6c12-4c5a-b5e3-fcca36b7621a</refId>
           </source>
           <positions/>
         </transition>
@@ -686,8 +686,8 @@
       <returnStepType>ERROR</returnStepType>
       <assignments/>
     </returnStep>
-    <step id="3fa2ac3c-e51e-4a95-b511-dee0b7c2fb31">
-      <annotation>2a11c7bc-c046-4a3c-b144-faa2a31e3ce9.3fa2ac3c-e51e-4a95-b511-dee0b7c2fb31.description</annotation>
+    <step id="a071348a-5eb4-4d16-861f-5d410884a685">
+      <annotation>c05d3665-a2d8-4d36-bdaa-87cf63af4568.a071348a-5eb4-4d16-861f-5d410884a685.description</annotation>
       <name>Get Result Count</name>
       <bounds>
         <x>240.0</x>
@@ -708,7 +708,7 @@
       <scriptResultStep>false</scriptResultStep>
       <userPrompt></userPrompt>
       <bindings>
-        <userInputBinding id="5400f2bb-c687-48b4-9dfb-aaa3717aa4d4">
+        <userInputBinding id="2ff9fd67-dc90-4bf9-ac7e-0350401e8963">
           <annotation></annotation>
           <fromContextKey>prefixJSON</fromContextKey>
           <assignFromContext>true</assignFromContext>
@@ -724,7 +724,7 @@
           <isMultiSelect>false</isMultiSelect>
           <sourceDelimiter>|</sourceDelimiter>
         </userInputBinding>
-        <staticBinding id="8a8fe6a1-d58c-46c6-8a89-a0772ea7de0c">
+        <staticBinding id="a7281087-9eed-4685-963f-bf7f90629cb0">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -739,7 +739,7 @@
         </staticBinding>
       </bindings>
       <transitions>
-        <transition id="dd64caeb-b704-41f2-a724-89a34c70e631">
+        <transition id="6bc1e53c-f858-4bc1-947e-44d5feb292ec">
           <annotation></annotation>
           <name>failure</name>
           <command>NEXT</command>
@@ -748,10 +748,10 @@
           <shouldHandoff>false</shouldHandoff>
           <transitionValue>0.0</transitionValue>
           <destination>
-            <refId>49b84efa-639c-4828-9db9-a4e61f8f71ac</refId>
+            <refId>ffc75605-6c12-4c5a-b5e3-fcca36b7621a</refId>
           </destination>
           <source>
-            <refId>3fa2ac3c-e51e-4a95-b511-dee0b7c2fb31</refId>
+            <refId>a071348a-5eb4-4d16-861f-5d410884a685</refId>
           </source>
           <positions>
             <point>
@@ -768,7 +768,7 @@
             <y>0.0</y>
           </labelPosition>
         </transition>
-        <transition id="5f5186ce-1662-4b36-afdb-b1c0e7d44e48">
+        <transition id="a97a83b2-14c8-4f10-b983-3ad98e6e8c65">
           <annotation></annotation>
           <name>success</name>
           <command>NEXT</command>
@@ -777,10 +777,10 @@
           <shouldHandoff>false</shouldHandoff>
           <transitionValue>0.0</transitionValue>
           <destination>
-            <refId>d7509155-cc4d-46dc-8ccb-d0f1b89fb0b0</refId>
+            <refId>7c51df5d-55b8-4121-bd76-681504c67a7a</refId>
           </destination>
           <source>
-            <refId>3fa2ac3c-e51e-4a95-b511-dee0b7c2fb31</refId>
+            <refId>a071348a-5eb4-4d16-861f-5d410884a685</refId>
           </source>
           <positions>
             <point>
@@ -803,13 +803,13 @@
         <refId>dc278be5-3c54-4640-bc57-971e9a1b15c5</refId>
       </opRef>
       <assignments>
-        <flowVariableAssignment id="2d6008b5-286d-44ef-b747-a33c2f0d4cce">
+        <flowVariableAssignment id="c9165c11-7e59-4c42-b47f-9f728794b40c">
           <annotation></annotation>
           <name>assignment</name>
           <action>OVERWRITE</action>
           <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
           <contextKey>prefixCount</contextKey>
-          <expression id="18f0624b-b0f4-45a0-b608-96305c59c253">
+          <expression id="48edfe5f-1e47-4296-ad77-b52b577bcaf7">
             <annotation></annotation>
             <name>Result Field: returnResult</name>
             <fieldName>returnResult</fieldName>
@@ -820,8 +820,8 @@
       </assignments>
       <throttleSize>0</throttleSize>
     </step>
-    <step id="46a5a170-a746-4116-a065-820e82168fe5">
-      <annotation>2a11c7bc-c046-4a3c-b144-faa2a31e3ce9.46a5a170-a746-4116-a065-820e82168fe5.description</annotation>
+    <step id="1dea623b-387e-4b21-8162-421d39036e3d">
+      <annotation>c05d3665-a2d8-4d36-bdaa-87cf63af4568.1dea623b-387e-4b21-8162-421d39036e3d.description</annotation>
       <name>Get Prefix ID</name>
       <bounds>
         <x>450.0</x>
@@ -842,7 +842,7 @@
       <scriptResultStep>false</scriptResultStep>
       <userPrompt></userPrompt>
       <bindings>
-        <userInputBinding id="ee6202a8-f9c0-4963-b61d-cc10b6576df4">
+        <userInputBinding id="a3f0d169-1b1b-44e0-82d2-11a3434e1cd8">
           <annotation></annotation>
           <fromContextKey>prefixJSON</fromContextKey>
           <assignFromContext>true</assignFromContext>
@@ -858,7 +858,7 @@
           <isMultiSelect>false</isMultiSelect>
           <sourceDelimiter>|</sourceDelimiter>
         </userInputBinding>
-        <staticBinding id="240fcf48-2a6a-4264-b9e6-0f4f9d1ca7e3">
+        <staticBinding id="4bd116c0-f173-49f5-adcc-8f0110d91247">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -873,7 +873,7 @@
         </staticBinding>
       </bindings>
       <transitions>
-        <transition id="2ddab084-3a6e-4fab-a594-b2f5864c1aeb">
+        <transition id="065d2494-7fe5-4e71-9f26-d4cce21fdf1c">
           <annotation></annotation>
           <name>failure</name>
           <command>NEXT</command>
@@ -882,10 +882,10 @@
           <shouldHandoff>false</shouldHandoff>
           <transitionValue>0.0</transitionValue>
           <destination>
-            <refId>49b84efa-639c-4828-9db9-a4e61f8f71ac</refId>
+            <refId>ffc75605-6c12-4c5a-b5e3-fcca36b7621a</refId>
           </destination>
           <source>
-            <refId>46a5a170-a746-4116-a065-820e82168fe5</refId>
+            <refId>1dea623b-387e-4b21-8162-421d39036e3d</refId>
           </source>
           <positions>
             <point>
@@ -902,7 +902,7 @@
             <y>0.0</y>
           </labelPosition>
         </transition>
-        <transition id="2d4ab118-0334-45b6-bd04-09b37757be61">
+        <transition id="51291737-72f0-4ad3-85cf-43da57c40908">
           <annotation></annotation>
           <name>success</name>
           <command>NEXT</command>
@@ -911,10 +911,10 @@
           <shouldHandoff>false</shouldHandoff>
           <transitionValue>0.0</transitionValue>
           <destination>
-            <refId>08e1e7e5-7e97-4f0e-8f22-4c9e3c4a6410</refId>
+            <refId>c8364fda-7524-4bb8-830b-0a70a1e01cd8</refId>
           </destination>
           <source>
-            <refId>46a5a170-a746-4116-a065-820e82168fe5</refId>
+            <refId>1dea623b-387e-4b21-8162-421d39036e3d</refId>
           </source>
           <positions>
             <point>
@@ -937,13 +937,13 @@
         <refId>dc278be5-3c54-4640-bc57-971e9a1b15c5</refId>
       </opRef>
       <assignments>
-        <flowVariableAssignment id="036548e5-6dd6-4004-86c7-871a565720bf">
+        <flowVariableAssignment id="46cb9111-0136-4dfc-9480-6d059aa6ec03">
           <annotation></annotation>
           <name>assignment</name>
           <action>OVERWRITE</action>
           <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
           <contextKey>prefixId</contextKey>
-          <expression id="feb09b26-2996-483d-a42a-df72ea190e6a">
+          <expression id="714f4368-b578-4bde-bae4-7011d55d7530">
             <annotation></annotation>
             <name>Result Field: returnResult</name>
             <fieldName>returnResult</fieldName>
@@ -954,8 +954,8 @@
       </assignments>
       <throttleSize>0</throttleSize>
     </step>
-    <step id="08e1e7e5-7e97-4f0e-8f22-4c9e3c4a6410">
-      <annotation>2a11c7bc-c046-4a3c-b144-faa2a31e3ce9.08e1e7e5-7e97-4f0e-8f22-4c9e3c4a6410.description</annotation>
+    <step id="c8364fda-7524-4bb8-830b-0a70a1e01cd8">
+      <annotation>c05d3665-a2d8-4d36-bdaa-87cf63af4568.c8364fda-7524-4bb8-830b-0a70a1e01cd8.description</annotation>
       <name>Get Prefix Name</name>
       <bounds>
         <x>660.0</x>
@@ -976,7 +976,7 @@
       <scriptResultStep>false</scriptResultStep>
       <userPrompt></userPrompt>
       <bindings>
-        <userInputBinding id="2cd4acab-c4ac-48f7-84a8-e75de3888e7e">
+        <userInputBinding id="c1a9f6a8-c6fe-4e1f-89b3-84adad008e29">
           <annotation></annotation>
           <fromContextKey>prefixJSON</fromContextKey>
           <assignFromContext>true</assignFromContext>
@@ -992,7 +992,7 @@
           <isMultiSelect>false</isMultiSelect>
           <sourceDelimiter>|</sourceDelimiter>
         </userInputBinding>
-        <staticBinding id="9b17d599-306a-4856-a9fa-39b33a10118e">
+        <staticBinding id="03342e04-a257-4f8b-9d52-008edcb54bfd">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -1007,7 +1007,7 @@
         </staticBinding>
       </bindings>
       <transitions>
-        <transition id="c47a5f68-2be6-4a4d-b9de-e5cb05395bad">
+        <transition id="4892dfd4-35a5-4c84-9308-4296442866d6">
           <annotation></annotation>
           <name>success</name>
           <command>NEXT</command>
@@ -1016,10 +1016,10 @@
           <shouldHandoff>false</shouldHandoff>
           <transitionValue>0.0</transitionValue>
           <destination>
-            <refId>ec9e0588-5ca6-46e3-b7c4-2b5d224a878d</refId>
+            <refId>2073734d-9ade-427a-9c9c-b53231fa4270</refId>
           </destination>
           <source>
-            <refId>08e1e7e5-7e97-4f0e-8f22-4c9e3c4a6410</refId>
+            <refId>c8364fda-7524-4bb8-830b-0a70a1e01cd8</refId>
           </source>
           <positions>
             <point>
@@ -1036,7 +1036,7 @@
             <y>0.0</y>
           </labelPosition>
         </transition>
-        <transition id="46275919-427d-4a93-a2fd-c63fbe31ea74">
+        <transition id="8466ec78-b3ed-4d06-94b7-a7331a93fbbe">
           <annotation></annotation>
           <name>failure</name>
           <command>NEXT</command>
@@ -1045,10 +1045,10 @@
           <shouldHandoff>false</shouldHandoff>
           <transitionValue>0.0</transitionValue>
           <destination>
-            <refId>49b84efa-639c-4828-9db9-a4e61f8f71ac</refId>
+            <refId>ffc75605-6c12-4c5a-b5e3-fcca36b7621a</refId>
           </destination>
           <source>
-            <refId>08e1e7e5-7e97-4f0e-8f22-4c9e3c4a6410</refId>
+            <refId>c8364fda-7524-4bb8-830b-0a70a1e01cd8</refId>
           </source>
           <positions>
             <point>
@@ -1071,13 +1071,13 @@
         <refId>dc278be5-3c54-4640-bc57-971e9a1b15c5</refId>
       </opRef>
       <assignments>
-        <flowVariableAssignment id="aff0c1aa-aea0-4738-8eba-6737d689d56d">
+        <flowVariableAssignment id="e3cb885e-d189-458d-a64a-5e0b28cf9e4c">
           <annotation></annotation>
           <name>assignment</name>
           <action>OVERWRITE</action>
           <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
           <contextKey>prefixName</contextKey>
-          <expression id="ed54db09-0688-4622-b600-1a7e7fd1b515">
+          <expression id="46769ba2-9518-46aa-9162-e621387fdd08">
             <annotation></annotation>
             <name>Result Field: returnResult</name>
             <fieldName>returnResult</fieldName>
@@ -1088,8 +1088,8 @@
       </assignments>
       <throttleSize>0</throttleSize>
     </step>
-    <step id="d7509155-cc4d-46dc-8ccb-d0f1b89fb0b0">
-      <annotation>2a11c7bc-c046-4a3c-b144-faa2a31e3ce9.d7509155-cc4d-46dc-8ccb-d0f1b89fb0b0.description</annotation>
+    <step id="7c51df5d-55b8-4121-bd76-681504c67a7a">
+      <annotation>c05d3665-a2d8-4d36-bdaa-87cf63af4568.7c51df5d-55b8-4121-bd76-681504c67a7a.description</annotation>
       <name>Result count greater than 0</name>
       <bounds>
         <x>240.0</x>
@@ -1110,7 +1110,7 @@
       <scriptResultStep>false</scriptResultStep>
       <userPrompt></userPrompt>
       <bindings>
-        <userInputBinding id="44ccfcac-f044-4e7e-96f0-48e63f87f4bc">
+        <userInputBinding id="7cdc92d1-33ed-4d39-ba26-cfdbd192b9b0">
           <annotation></annotation>
           <fromContextKey>prefixCount</fromContextKey>
           <assignFromContext>true</assignFromContext>
@@ -1126,7 +1126,7 @@
           <isMultiSelect>false</isMultiSelect>
           <sourceDelimiter>|</sourceDelimiter>
         </userInputBinding>
-        <staticBinding id="3573574b-3351-46b1-b842-5efb51a63a05">
+        <staticBinding id="e9aaf0a6-a0cc-4112-9763-07d38b9dab81">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -1139,7 +1139,7 @@
           <value>0</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="14fe1bb5-9352-4119-b889-1ebb502bc517">
+        <staticBinding id="e18843b8-1340-465b-9660-a34929fd96be">
           <annotation></annotation>
           <toContextKey></toContextKey>
           <fromContextKey></fromContextKey>
@@ -1157,7 +1157,7 @@
         </staticBinding>
       </bindings>
       <transitions>
-        <transition id="5f260e7a-7160-4626-a9ed-a661ab0af84a">
+        <transition id="70b2aa5a-954f-4a96-8ad9-6b20a506c429">
           <annotation></annotation>
           <name>success</name>
           <command>NEXT</command>
@@ -1166,10 +1166,10 @@
           <shouldHandoff>false</shouldHandoff>
           <transitionValue>0.0</transitionValue>
           <destination>
-            <refId>46a5a170-a746-4116-a065-820e82168fe5</refId>
+            <refId>1dea623b-387e-4b21-8162-421d39036e3d</refId>
           </destination>
           <source>
-            <refId>d7509155-cc4d-46dc-8ccb-d0f1b89fb0b0</refId>
+            <refId>7c51df5d-55b8-4121-bd76-681504c67a7a</refId>
           </source>
           <positions>
             <point>
@@ -1186,7 +1186,7 @@
             <y>0.0</y>
           </labelPosition>
         </transition>
-        <transition id="92b26491-a0b3-497b-95ef-5278a0949f95">
+        <transition id="f9e6a636-6053-4ec7-820c-4974e2fec8b5">
           <annotation></annotation>
           <name>No prefix found</name>
           <command>NEXT</command>
@@ -1195,10 +1195,10 @@
           <shouldHandoff>false</shouldHandoff>
           <transitionValue>0.0</transitionValue>
           <destination>
-            <refId>ecff4345-524b-4a8b-9ec9-c0b3604851af</refId>
+            <refId>185853c1-1f49-4996-b86a-32461c625de0</refId>
           </destination>
           <source>
-            <refId>d7509155-cc4d-46dc-8ccb-d0f1b89fb0b0</refId>
+            <refId>7c51df5d-55b8-4121-bd76-681504c67a7a</refId>
           </source>
           <positions>
             <point>
@@ -1223,7 +1223,7 @@
       <assignments/>
       <throttleSize>0</throttleSize>
     </step>
-    <returnStep id="ecff4345-524b-4a8b-9ec9-c0b3604851af">
+    <returnStep id="185853c1-1f49-4996-b86a-32461c625de0">
       <annotation></annotation>
       <name>No Action Taken : unknown</name>
       <bounds>
@@ -1246,7 +1246,7 @@
       <userPrompt></userPrompt>
       <bindings/>
       <transitions>
-        <transition id="7a5c6171-a0b2-4941-80d7-0e0d73a5663c">
+        <transition id="90829247-022f-4292-ace4-ef135ea57814">
           <annotation></annotation>
           <name>return</name>
           <command>NEXT</command>
@@ -1255,10 +1255,10 @@
           <shouldHandoff>false</shouldHandoff>
           <transitionValue>0.0</transitionValue>
           <destination>
-            <refId>ecff4345-524b-4a8b-9ec9-c0b3604851af</refId>
+            <refId>185853c1-1f49-4996-b86a-32461c625de0</refId>
           </destination>
           <source>
-            <refId>ecff4345-524b-4a8b-9ec9-c0b3604851af</refId>
+            <refId>185853c1-1f49-4996-b86a-32461c625de0</refId>
           </source>
           <positions/>
         </transition>
@@ -1267,8 +1267,8 @@
       <returnStepType>NO_ACTION_TAKEN</returnStepType>
       <assignments/>
     </returnStep>
-    <step id="0c55fcfb-c128-457f-9de4-aad4d1f0c7f7">
-      <annotation>2a11c7bc-c046-4a3c-b144-faa2a31e3ce9.0c55fcfb-c128-457f-9de4-aad4d1f0c7f7.description</annotation>
+    <step id="c8f548d0-6049-489d-9bcd-b3902b9edeca">
+      <annotation>c05d3665-a2d8-4d36-bdaa-87cf63af4568.c8f548d0-6049-489d-9bcd-b3902b9edeca.description</annotation>
       <name>Request OK</name>
       <bounds>
         <x>240.0</x>
@@ -1289,7 +1289,7 @@
       <scriptResultStep>false</scriptResultStep>
       <userPrompt></userPrompt>
       <bindings>
-        <userInputBinding id="513228b7-9988-4421-9c7c-572b60f2d9bc">
+        <userInputBinding id="b1999b24-4b14-43d8-a11a-ab89864b9129">
           <annotation></annotation>
           <fromContextKey>statusCode</fromContextKey>
           <assignFromContext>true</assignFromContext>
@@ -1305,7 +1305,7 @@
           <isMultiSelect>false</isMultiSelect>
           <sourceDelimiter>|</sourceDelimiter>
         </userInputBinding>
-        <staticBinding id="e1cf43d7-16f5-4506-a340-0200f7163e92">
+        <staticBinding id="4f9a0dd7-cc7f-463e-8967-455970f04aa8">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -1318,7 +1318,7 @@
           <value>200</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="a35fb5d3-d935-44d3-8184-14174334dbfe">
+        <staticBinding id="c84c0531-85e5-4d0f-8000-0ac46a153b1a">
           <annotation></annotation>
           <toContextKey></toContextKey>
           <fromContextKey></fromContextKey>
@@ -1336,7 +1336,7 @@
         </staticBinding>
       </bindings>
       <transitions>
-        <transition id="3bc55836-a802-45bc-80ad-b75701f1d603">
+        <transition id="ca47fc1f-62f5-4553-ac5b-9b7bdf85710b">
           <annotation></annotation>
           <name>success</name>
           <command>NEXT</command>
@@ -1345,10 +1345,10 @@
           <shouldHandoff>false</shouldHandoff>
           <transitionValue>0.0</transitionValue>
           <destination>
-            <refId>3fa2ac3c-e51e-4a95-b511-dee0b7c2fb31</refId>
+            <refId>a071348a-5eb4-4d16-861f-5d410884a685</refId>
           </destination>
           <source>
-            <refId>0c55fcfb-c128-457f-9de4-aad4d1f0c7f7</refId>
+            <refId>c8f548d0-6049-489d-9bcd-b3902b9edeca</refId>
           </source>
           <positions>
             <point>
@@ -1365,7 +1365,7 @@
             <y>0.0</y>
           </labelPosition>
         </transition>
-        <transition id="fe50a081-de4c-4406-8074-e7186c1202f5">
+        <transition id="b8b3fc52-2fc5-45c7-ad2d-4bdf7cabf97a">
           <annotation></annotation>
           <name>failure</name>
           <command>NEXT</command>
@@ -1374,10 +1374,10 @@
           <shouldHandoff>false</shouldHandoff>
           <transitionValue>0.0</transitionValue>
           <destination>
-            <refId>49b84efa-639c-4828-9db9-a4e61f8f71ac</refId>
+            <refId>ffc75605-6c12-4c5a-b5e3-fcca36b7621a</refId>
           </destination>
           <source>
-            <refId>0c55fcfb-c128-457f-9de4-aad4d1f0c7f7</refId>
+            <refId>c8f548d0-6049-489d-9bcd-b3902b9edeca</refId>
           </source>
           <positions>
             <point>
@@ -1403,5 +1403,5 @@
       <throttleSize>0</throttleSize>
     </step>
   </steps>
-  <startSteps>9cc99844-4547-4121-811a-a520e3346922</startSteps>
+  <startSteps>f019b836-d2f3-4d26-a1e7-c36e14c5acb4</startSteps>
 </flow>
