@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<operation id="390b9234-e41b-4bb8-b9f8-b1c096b1651d">
+  <descriptionCdata><![CDATA[390b9234-e41b-4bb8-b9f8-b1c096b1651d.description=<pre>\nThis operation does not do anything. It can be used to filter flow variables by defining them as inputs and filtering them in the Results tab.\n\nInputs\:\n    field1 \u2013 An optional input that can be used for filtering flow variables.\n    field2 \u2013 An optional input that can be used for filtering flow variables.\n    field3 \u2013 An optional input that can be used for filtering flow variables.\n    field4 \u2013 An optional input that can be used for filtering flow variables.\n\nResults\:\n    returnResult - This is the primary output. It contains the value of  "field1" as it was specified at input or when filtered. \n\nResponses\:\n    success - The operation completed as stated in the description.\n</pre>
+]]></descriptionCdata>
+  <annotation>390b9234-e41b-4bb8-b9f8-b1c096b1651d.description</annotation>
+  <name>Generate IP Netmask</name>
+  <categories/>
+  <inputs>
+    <staticBinding id="07b97f87-4161-4be5-897c-47d61bc1c2aa">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>maskLength</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value>24</value>
+      <record>false</record>
+    </staticBinding>
+  </inputs>
+  <scriptlet id="33e04d59-0d73-490c-a55e-a7fae20f4cab">
+    <annotation></annotation>
+    <name>Operation Generate IP Netmask (390b9234-e41b-4bb8-b9f8-b1c096b1651d)</name>
+    <script>
+//var ipaddr = &quot;10.1.2.3&quot;;
+var maskLength = parseInt(maskLength, 10);
+//var gateway = parseInt(&quot;1&quot;, 10);
+
+
+//console.log(&quot;maskLength:&quot; + maskLength);
+
+var strMaskDot = &quot;&quot;
+var intMask = &quot;&quot;
+for (var i = 0; i &lt; 4; i++) {
+    var intDigit = 0
+    for (var j = 0; j &lt; 8; j++) {
+        if ((j + (i * 8)) &lt; maskLength) {
+            strMaskDot += &quot;1&quot;;
+            intDigit += Math.pow(2 , (8 - j - 1));
+            //console.log(&quot;intDigit:&quot; + intDigit);
+        } 
+        else strMaskDot += &quot;0&quot;;
+    };
+    intMask += intDigit.toString()
+    if (i &lt; 3) {
+        strMaskDot += &quot;.&quot;
+        intMask += &quot;.&quot;
+    }
+
+};
+
+//console.log(&quot;strMaskDot:&quot; + strMaskDot);
+//console.log(&quot;intMask:&quot; + intMask);
+//console.log(&quot;ipaddr:&quot; + ipaddr);
+
+scriptletResult=intMask</script>
+    <type>RHINO</type>
+  </scriptlet>
+  <possibleResponses>
+    <opResponse id="3dabceaa-9322-40df-96a4-c847dda65655">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>true</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions>
+    <expression id="24de8337-8780-4272-ac83-b6000cbff71a">
+      <annotation></annotation>
+      <name>netMask</name>
+      <fieldName>returnResult</fieldName>
+      <sourceType>RAWRESULT</sourceType>
+      <filters/>
+    </expression>
+  </availableResultExpressions>
+  <resultExpression id="68f0ac7a-4b93-4c18-8c05-cb13358547d1">
+    <annotation></annotation>
+    <name>returnResult</name>
+    <fieldName>returnResult</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="1968d6ab-8ba0-491f-848c-79b0de67d72d">
+    <baseIcon>modem_earth.png</baseIcon>
+    <basePath>/Networking/</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <opRef>
+    <refId>ddd79f22-8b1e-4605-88d5-d912bb2da2b9</refId>
+  </opRef>
+  <fieldValues/>
+  <groupAliasRef>
+    <refId>5233030c-af46-432b-a682-b326ca6bf2ae</refId>
+    <refName>RAS_Operator_Path</refName>
+  </groupAliasRef>
+  <overrideGroupAlias>${overrideJRAS}</overrideGroupAlias>
+</operation>

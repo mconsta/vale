@@ -94,6 +94,12 @@ c05d3665-a2d8-4d36-bdaa-87cf63af4568.f019b836-d2f3-4d26-a1e7-c36e14c5acb4.descri
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
+      <iconSpec id="3bd879f9-ff69-4a53-bcd1-58950b9bef03">
+        <baseIcon>earth.png</baseIcon>
+        <basePath>/Networking/</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
@@ -254,7 +260,7 @@ c05d3665-a2d8-4d36-bdaa-87cf63af4568.f019b836-d2f3-4d26-a1e7-c36e14c5acb4.descri
           <isPersisted>true</isPersisted>
           <inputSymbol>trustAllRoots</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value>false</value>
+          <value>true</value>
           <record>false</record>
         </staticBinding>
         <staticBinding id="7c6b5372-f15f-49b9-a036-bc9db04ee189">
@@ -421,8 +427,7 @@ c05d3665-a2d8-4d36-bdaa-87cf63af4568.f019b836-d2f3-4d26-a1e7-c36e14c5acb4.descri
           <isPersisted>true</isPersisted>
           <inputSymbol>headers</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value>Authorization: Token ${Vale/Netbox/NBToken}
-</value>
+          <value>Authorization: Token ${Vale/Netbox/NBToken}</value>
           <record>false</record>
         </staticBinding>
         <staticBinding id="f2bc434a-0b92-48b8-8b2e-2765d40dbecf">
@@ -651,6 +656,12 @@ c05d3665-a2d8-4d36-bdaa-87cf63af4568.f019b836-d2f3-4d26-a1e7-c36e14c5acb4.descri
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
+      <iconSpec id="83bd7326-6494-43dc-abc5-55aea1be5b0c">
+        <baseIcon>return_failure.png</baseIcon>
+        <basePath>System</basePath>
+        <readOnly>true</readOnly>
+        <layers/>
+      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>

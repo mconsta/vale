@@ -259,7 +259,7 @@
           <isPersisted>true</isPersisted>
           <inputSymbol>trustAllRoots</inputSymbol>
           <listDelimiter>,</listDelimiter>
-          <value>false</value>
+          <value>true</value>
           <record>false</record>
         </staticBinding>
         <staticBinding id="c601ad54-d16c-4f16-aa46-3ce417a30115">
@@ -854,12 +854,6 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
-      <iconSpec id="1c132973-ffaf-49fa-b24e-221fc7d50409">
-        <baseIcon>return_success.png</baseIcon>
-        <basePath>System</basePath>
-        <readOnly>true</readOnly>
-        <layers/>
-      </iconSpec>
       <addResultToRunContext>false</addResultToRunContext>
       <isCriticalStep>false</isCriticalStep>
       <isNonBlocking>false</isNonBlocking>
