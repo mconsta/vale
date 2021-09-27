@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow id="961ba11e-6f43-4a76-a4f5-f7f486c36131">
+  <descriptionCdata><![CDATA[]]></descriptionCdata>
+  <annotation></annotation>
+  <name>TestMail</name>
+  <categories/>
+  <inputs/>
+  <possibleResponses>
+    <opResponse id="6698697e-7bb0-4079-b071-805cad4edd30">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>true</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+    <opResponse id="82ab914b-28fd-44a2-8a5f-1124457ef896">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>false</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="6193ff6a-7e36-473d-80ca-0651ba55908d">
+    <annotation></annotation>
+    <name>FailureMessage</name>
+    <fieldName>FailureMessage</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="714c20d8-7b01-4bf3-a33d-b31f4654b72a">
+    <baseIcon>flow.png</baseIcon>
+    <basePath>System</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <callouts/>
+  <checkPointFlow>true</checkPointFlow>
+  <compatibleRuntimeContext>false</compatibleRuntimeContext>
+  <historyCheckPointFlow>true</historyCheckPointFlow>
+  <steps>
+    <step id="555f92be-4375-40e6-b54c-81c2c79cd2d3">
+      <annotation></annotation>
+      <name>Password Notification to Security team</name>
+      <bounds>
+        <x>66.0</x>
+        <y>53.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="00e2a61c-91fc-42da-9a3f-ead119783ea4">
+        <baseIcon>flow.png</baseIcon>
+        <basePath>System</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="f97a0008-62f0-4777-aa4c-2c9a73fa4b5a">
+          <annotation></annotation>
+          <fromContextKey>Vale/Email Notification/Recipients/RCPTNotifySecurityTeam</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>true</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>to</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>nobody@dxc.com</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="8c5126c0-ffff-4841-84e6-e5456ea6ed98">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>overrideJRAS</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${Vale/CENTRAL_EXECUTION}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="843a2064-6865-41bf-808e-c0d93c8270b1">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>overrideNRAS</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${Vale/CENTRAL_EXECUTION}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="12e85a03-c5ce-4ab9-9752-e744d700f44a">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>true</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>subject</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>Password for VM</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="8ea456f0-025b-406c-92c6-1c0d48e0c7db">
+          <annotation></annotation>
+          <fromContextKey>errorMessage</fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>true</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>htmlEmail</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="070490b5-435a-43ad-ad7d-6b0672d23915">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>true</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>body</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;font color=&quot;black&quot;&gt;
+&lt;p&gt;&lt;i&gt;Ol&#225; equipe,&lt;/i&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;i&gt;O pedido &lt;b&gt;${SVC_SUBSCRIPTION_ID}&lt;/b&gt; foi processado com &#234;xito no Portal do aCP.&lt;/i&gt;&lt;/p&gt;
+
+&lt;font color=&quot;black&quot;&gt;
+&lt;p&gt;&lt;b&gt;Order details - Server details&lt;/b&gt;&lt;/br&gt;&lt;/p&gt;
+
+Server Name		-	&lt;b&gt;${vmName}&lt;/b&gt;&lt;/br&gt;
+Server IP		-	&lt;b&gt;${ipAddress}&lt;/b&gt;&lt;/br&gt;
+Password		-	&lt;b&gt;${generatedPassword}&lt;/b&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;/font&gt;
+
+&lt;p&gt;&lt;i&gt;Esta mensagem foi gerada automaticamente. Por favor n&#227;o responda este e-mail.&lt;/i&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Obrigado,&lt;/b&gt;&lt;/br&gt;
+&lt;b&gt;DXC.technology&lt;/b&gt;&lt;/p&gt;
+&lt;/font&gt;
+_________________________________________________________________________________________________________________
+
+&lt;font color=&quot;black&quot;&gt;
+&lt;p&gt;&lt;i&gt;Hello Team,&lt;/i&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;i&gt;The order &lt;b&gt;${SVC_SUBSCRIPTION_ID}&lt;/b&gt; has successfully been processed through the aCP Portal.&lt;/i&gt;&lt;/p&gt;
+
+&lt;font color=&quot;black&quot;&gt;
+&lt;p&gt;&lt;b&gt;Order details - Server details&lt;/b&gt;&lt;/br&gt;&lt;/p&gt;
+
+Server Name		-	&lt;b&gt;${vmName}&lt;/b&gt;&lt;/br&gt;
+Server IP		-	&lt;b&gt;${ipAddress}&lt;/b&gt;&lt;/br&gt;
+Password		-	&lt;b&gt;${generatedPassword}/b&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;/font&gt;
+
+&lt;p&gt;&lt;i&gt;This is an automatically generated message. Please do not reply directly to this email.&lt;/i&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Thank you,&lt;/b&gt;&lt;/br&gt;
+&lt;b&gt;DXC.technology&lt;/b&gt;&lt;/p&gt;
+&lt;/font&gt;
+&lt;/body&gt;
+&lt;/html&gt;</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="8c01ce14-bfc4-432d-8b09-e1b5ef3a3ea5">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>5b3fc8d6-6fa0-41c9-a849-15cecaac44e9</refId>
+          </destination>
+          <source>
+            <refId>555f92be-4375-40e6-b54c-81c2c79cd2d3</refId>
+          </source>
+          <positions>
+            <point>
+              <x>50.0</x>
+              <y>34.0</y>
+            </point>
+            <point>
+              <x>306.0</x>
+              <y>134.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="10c617b9-5d66-4688-a347-249b58219a12">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>ea2dd33c-5ab6-4626-a4a1-7a7a2e91a6ed</refId>
+          </destination>
+          <source>
+            <refId>555f92be-4375-40e6-b54c-81c2c79cd2d3</refId>
+          </source>
+          <positions>
+            <point>
+              <x>116.0</x>
+              <y>87.0</y>
+            </point>
+            <point>
+              <x>61.0</x>
+              <y>279.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>8d7a832f-eae8-4d31-94f8-8dcf41622f74</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+    <returnStep id="5b3fc8d6-6fa0-41c9-a849-15cecaac44e9">
+      <annotation></annotation>
+      <name>Resolved : success</name>
+      <bounds>
+        <x>256.0</x>
+        <y>100.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="6e7edbed-4c48-415a-8c9e-3fe7d4ba35d8">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>5b3fc8d6-6fa0-41c9-a849-15cecaac44e9</refId>
+          </destination>
+          <source>
+            <refId>5b3fc8d6-6fa0-41c9-a849-15cecaac44e9</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>RESOLVED</returnStepType>
+      <assignments/>
+    </returnStep>
+    <returnStep id="ea2dd33c-5ab6-4626-a4a1-7a7a2e91a6ed">
+      <annotation></annotation>
+      <name>Error : failure</name>
+      <bounds>
+        <x>11.0</x>
+        <y>245.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="c3b1aa1f-ffa8-49d3-925d-3010fe0d8396">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>ea2dd33c-5ab6-4626-a4a1-7a7a2e91a6ed</refId>
+          </destination>
+          <source>
+            <refId>ea2dd33c-5ab6-4626-a4a1-7a7a2e91a6ed</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>ERROR</returnStepType>
+      <assignments/>
+    </returnStep>
+  </steps>
+  <startSteps>555f92be-4375-40e6-b54c-81c2c79cd2d3</startSteps>
+</flow>
