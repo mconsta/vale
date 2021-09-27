@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<systemProperty id="f2e07d29-62a7-42b6-a392-2fc8f4d6425a">
+  <descriptionCdata><![CDATA[f2e07d29-62a7-42b6-a392-2fc8f4d6425a.description=The time to wait for data to be retrieved, in milliseconds. A timeout after which the connection should be terminated or 0 for no timeout.
+]]></descriptionCdata>
+  <annotation>f2e07d29-62a7-42b6-a392-2fc8f4d6425a.description</annotation>
+  <name>pc.esl.webservice.timeout</name>
+  <value>{OBFUSCATED}UMAPIXQj36dDGCJtF/ha+A==</value>
+</systemProperty>

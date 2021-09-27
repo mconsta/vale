@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<systemProperty id="2f97f9c7-2c69-497f-a915-0cfd0782a745">
+  <descriptionCdata><![CDATA[2f97f9c7-2c69-497f-a915-0cfd0782a745.description=Address of the ESL(EIT2 100) web service for GetCI/GetCIDetail
+]]></descriptionCdata>
+  <annotation>2f97f9c7-2c69-497f-a915-0cfd0782a745.description</annotation>
+  <name>pc.esl.webservice.address2</name>
+  <value>{OBFUSCATED}cpD+LHv3003tM5f31vIq/SHu5bSLAZwTQBJGII17mbDbRrIzMCNU9zl5QN5qsKbH1LwIgQmtbMsCx+PBrRB/6Q==</value>
+</systemProperty>

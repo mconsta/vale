@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<operation id="3fbcd898-1093-401d-b8e3-a7a44d201274">
+  <descriptionCdata><![CDATA[3fbcd898-1093-401d-b8e3-a7a44d201274.53e7beac-0398-4bc4-a0f3-55562099497c.prompt=Ignore Case
+3fbcd898-1093-401d-b8e3-a7a44d201274.description=<pre>\nCompares two strings, returning a true response if and only if they contain the same sequence of characters. A null string is considered to be equal to an empty string.\n\nInputs\:\n    string1 - The first string. \nDefault value\: "" (empty)\n    string2 - The second string.\nDefault value\: "" (empty)\n    ignoreCase - If set to 'true', then the comparison ignores case considerations. The two strings are considered equal ignoring case if they are of the same length and corresponding characters in the two strings are equal ignoring case. If set to any value other than 'true', then the strings must match exactly to be considered equal.\n\nResponses\:\n    true - If the two strings are equal.\n    false - If the two strings are not equal.\n\n</pre>
+]]></descriptionCdata>
+  <annotation>3fbcd898-1093-401d-b8e3-a7a44d201274.description</annotation>
+  <name>String Equals</name>
+  <categories/>
+  <inputs>
+    <userInputBinding id="90d5bfaa-72fb-4a2f-964f-72153b7d7e43">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>string1</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="54396040-d171-444e-b1c0-fb6d3a7b74b1">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>string2</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="53e7beac-0398-4bc4-a0f3-55562099497c">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>ignoreCase</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>3fbcd898-1093-401d-b8e3-a7a44d201274.53e7beac-0398-4bc4-a0f3-55562099497c.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <link>
+        <refId>96a1ed25-cdc9-4ff6-8fba-e9c044c5ca53</refId>
+        <refName>Boolean - False Default</refName>
+      </link>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+  </inputs>
+  <scriptlet id="ee17d5c1-9f28-42b7-ab1c-97213c96ab20">
+    <annotation></annotation>
+    <name>Operation String Equals (3fbcd898-1093-401d-b8e3-a7a44d201274)</name>
+    <script>var initial = scriptletContext.get(&quot;in1&quot;);
+if (initial != null) {
+	scriptletResult = initial;
+} else {
+	scriptletResult = &quot;${in1}&quot;;
+}
+scriptletResponse = &quot;false&quot;;
+
+if (typeof string1 == &apos;undefined&apos; || string1 == null)
+    string1 = &quot;&quot;;
+
+if (typeof string2 == &apos;undefined&apos; || string2 == null)
+    string2 = &quot;&quot;;
+
+var ignore = false;
+if (ignoreCase != null)
+	ignore = java.lang.Boolean.parseBoolean(ignoreCase);
+
+var outcome;
+if (ignore)
+	outcome = new java.lang.String(string1).compareToIgnoreCase(string2);
+else
+	outcome = java.lang.String(string1).compareTo(string2);
+
+if (outcome == 0)
+	scriptletResponse = &quot;true&quot;;
+</script>
+    <type>RHINO</type>
+  </scriptlet>
+  <possibleResponses>
+    <opResponse id="9ca2a35d-ee9e-4e14-ae2e-98d1d67bb254">
+      <annotation></annotation>
+      <name>true</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+    <opResponse id="df75e59f-4ff5-4a5b-ad13-50a08cf389f7">
+      <annotation></annotation>
+      <name>false</name>
+      <isDefault>true</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="edcb9daa-5468-45c0-a6f8-69dc0591de11">
+    <annotation></annotation>
+    <name>returnResult</name>
+    <fieldName>returnResult</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="418d35c7-f38b-4a6b-8581-96b018cb646f">
+    <baseIcon>compare.png</baseIcon>
+    <basePath>Utilities/</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <opRef>
+    <refId>ddd79f22-8b1e-4605-88d5-d912bb2da2b9</refId>
+  </opRef>
+  <fieldValues/>
+  <groupAliasRef>
+    <refId>5233030c-af46-432b-a682-b326ca6bf2ae</refId>
+    <refName>RAS_Operator_Path</refName>
+  </groupAliasRef>
+  <overrideGroupAlias>${overrideJRAS}</overrideGroupAlias>
+</operation>

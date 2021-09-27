@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<systemProperty id="74f04089-a2e7-4815-9ec1-68bd6b1471e6">
+  <descriptionCdata><![CDATA[74f04089-a2e7-4815-9ec1-68bd6b1471e6.description=Address of the ESL(EIT2 100) web service for CreateCI/UpdateCI
+]]></descriptionCdata>
+  <annotation>74f04089-a2e7-4815-9ec1-68bd6b1471e6.description</annotation>
+  <name>pc.esl.webservice.address1</name>
+  <value>{OBFUSCATED}cpD+LHv3003tM5f31vIq/SHu5bSLAZwTQBJGII17mbDhy6Nq6bvqcBNw7WK8CHmpPgkmbBWnVtVbKhxPA0Rd6w==</value>
+</systemProperty>

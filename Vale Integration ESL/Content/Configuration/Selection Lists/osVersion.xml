@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<selectionList id="748c0918-5e75-41a2-949a-e74bb9943147">
+  <descriptionCdata><![CDATA[]]></descriptionCdata>
+  <annotation></annotation>
+  <name>osVersion</name>
+  <storage>
+    <string>Red Hat Enterprise Linux 7 (64-bit)</string>
+    <string>Red Hat Enterprise Linux 8 (64-bit)</string>
+    <string>Microsoft Windows Server 2012 (64-bit)</string>
+    <string>Microsoft Windows Server 2016 or later (64-bit)</string>
+  </storage>
+</selectionList>
