@@ -282,7 +282,7 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
-      <iconSpec id="d20cfa62-4f71-40bf-bcd1-f88cfd182e71">
+      <iconSpec id="0820e25b-67fd-4bd3-be80-40ddb197c127">
         <baseIcon>return_failure.png</baseIcon>
         <basePath>System</basePath>
         <readOnly>true</readOnly>
@@ -442,7 +442,7 @@
       </bounds>
       <layer>-1</layer>
       <hideInbound>false</hideInbound>
-      <iconSpec id="2df4ede5-d089-40ca-b93f-c0b91a7d0812">
+      <iconSpec id="5501aa98-5eca-493c-89ec-0f010050d077">
         <baseIcon>return_success.png</baseIcon>
         <basePath>System</basePath>
         <readOnly>true</readOnly>
@@ -969,7 +969,6 @@
         </staticBinding>
         <staticBinding id="a4e65c82-714f-4d78-a2c3-6e6ed324d5e8">
           <annotation></annotation>
-          <fromContextKey>mail_to</fromContextKey>
           <assignFromContext>true</assignFromContext>
           <assignToContext>false</assignToContext>
           <inputType>STRING</inputType>
@@ -1007,7 +1006,6 @@
         </staticBinding>
         <staticBinding id="3a197c9e-b0c8-4a24-a4e7-dbe95fd2c5a9">
           <annotation></annotation>
-          <fromContextKey>mail_subject</fromContextKey>
           <assignFromContext>true</assignFromContext>
           <assignToContext>false</assignToContext>
           <inputType>STRING</inputType>
@@ -1021,7 +1019,6 @@
         </staticBinding>
         <staticBinding id="27c14491-acbe-4a0d-a7ca-b660a0012e32">
           <annotation></annotation>
-          <fromContextKey>mail_body</fromContextKey>
           <assignFromContext>true</assignFromContext>
           <assignToContext>false</assignToContext>
           <inputType>STRING</inputType>
@@ -1035,7 +1032,6 @@
         </staticBinding>
         <staticBinding id="eb1815ca-c06a-407d-b497-9218e3a380a2">
           <annotation></annotation>
-          <fromContextKey>mail_htmlEmail</fromContextKey>
           <assignFromContext>true</assignFromContext>
           <assignToContext>false</assignToContext>
           <inputType>STRING</inputType>
@@ -1456,7 +1452,6 @@
         </staticBinding>
         <staticBinding id="2230b7ee-835b-4f7d-a0fe-c932b4f68601">
           <annotation></annotation>
-          <fromContextKey>mail_to</fromContextKey>
           <assignFromContext>true</assignFromContext>
           <assignToContext>false</assignToContext>
           <inputType>STRING</inputType>
@@ -1494,7 +1489,6 @@
         </staticBinding>
         <staticBinding id="08c6dce6-a17c-4467-87c2-5ef7856611e1">
           <annotation></annotation>
-          <fromContextKey>mail_subject</fromContextKey>
           <assignFromContext>true</assignFromContext>
           <assignToContext>false</assignToContext>
           <inputType>STRING</inputType>
@@ -1508,7 +1502,6 @@
         </staticBinding>
         <staticBinding id="823b5665-efe3-4e27-8c6f-4cf70b2923ef">
           <annotation></annotation>
-          <fromContextKey>mail_body</fromContextKey>
           <assignFromContext>true</assignFromContext>
           <assignToContext>false</assignToContext>
           <inputType>STRING</inputType>
@@ -1522,7 +1515,6 @@
         </staticBinding>
         <staticBinding id="0e0b6042-7ffb-4ea8-a67f-251eff6a07c1">
           <annotation></annotation>
-          <fromContextKey>mail_htmlEmail</fromContextKey>
           <assignFromContext>true</assignFromContext>
           <assignToContext>false</assignToContext>
           <inputType>STRING</inputType>
